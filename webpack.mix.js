@@ -11,5 +11,23 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+mix.scripts(
+  [
+    'resources/js/app.js',
+    'node_modules/mdbootstrap/js/jquery-3.3.1.min.js',
+    'node_modules/mdbootstrap/js/bootstrap.min.js',
+    'node_modules/mdbootstrap/js/mdb.min.js'
+  ],
+  'public/js/app.js'
+)
+  .styles(
+    'node_modules/mdbootstrap/css/bootstrap.min.css',
+    'public/css/app.css'
+  )
+  .sass('node_modules/mdbootstrap/scss/mdb.scss', 'public/css/mdb.css')
+  .sass('resources/sass/app.scss', 'public/css/app.css')
+  .sass(
+    'resources/sass/cvms/cvms.scss',
+    'public/css/cvms/cvms.css'
+  )
+  .browserSync('localhost:8000');

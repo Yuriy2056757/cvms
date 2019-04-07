@@ -1,0 +1,50 @@
+// Colors
+$black: #212121;
+
+// Sizes
+$left-padding: 25px;
+$vertical-padding: 30px;
+
+// Style side nav
+#sideNav {
+  min-width: 280px !important;
+  max-width: 280px !important;
+}
+
+// Style side nav logo
+#sideNavLogo {
+  padding: 20px;
+  padding-left: $left-padding;
+}
+
+// Style side nav categories
+.sidenav-category {
+  display: block;
+  border-top: 1px solid #e0e0e0 !important;
+  padding-top: $vertical-padding;
+  padding-bottom: $vertical-padding;
+
+  .sidenav-category-title {
+    padding-left: $left-padding;
+    color: $black;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+
+  a {
+    font-size: 0.9em;
+    padding: 10px;
+    padding-left: $left-padding;
+    color: #5f6368;
+    display: block !important;
+
+    &:hover {
+      background-color: #e0e0e0;
+      color: $black;
+    }
+  }
+}

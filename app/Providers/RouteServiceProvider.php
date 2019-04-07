@@ -39,7 +39,7 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        //
+        $this->mapCvmsRoutes();
     }
 
     /**
@@ -54,6 +54,14 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
              ->namespace($this->namespace)
              ->group(base_path('routes/web.php'));
+    }
+
+    protected function mapCvmsRoutes()
+    {
+        Route::middleware('web')
+          ->prefix('cvms')
+             ->namespace($this->namespace . '\Cvms')
+             ->group(base_path('routes/cvms.php'));
     }
 
     /**

@@ -14,6 +14,7 @@ const mix = require('laravel-mix');
 mix.scripts(
   [
     'resources/js/app.js',
+    'node_modules/mdbootstrap/js/popper.min.js',
     'node_modules/mdbootstrap/js/jquery-3.3.1.min.js',
     'node_modules/mdbootstrap/js/bootstrap.min.js',
     'node_modules/mdbootstrap/js/mdb.min.js'

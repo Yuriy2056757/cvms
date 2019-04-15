@@ -43,7 +43,7 @@
 
                   <ul>
                     <li>
-                      <a href="{{ route('home') }}">Curriculum Vitae</a>
+                      <a href="{{ route('articles.index') }}">Articles</a>
                     </li>
                   </ul>
                 </div>
@@ -76,7 +76,14 @@
 
                 {{-- Page content --}}
                 <div class="col">
-                  @yield('content')
+                  <div class="card m-1 mt-3">
+                    <div class="card-body">
+                      <div class="page-section">
+                        <h3 class="page-section-header">@yield('header_title')</h3>
+                        @yield('content')
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

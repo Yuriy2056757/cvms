@@ -53,7 +53,7 @@
 
           {{-- Navbar --}}
           <div class="col p-0">
-            <nav class="navbar navbar-expand-lg navbar-dark indigo position-absolute w-100">
+            <nav class="navbar navbar-expand-lg navbar-dark color-default position-absolute w-100">
                 <span id="hamburger" class="navbar-toggler-icon rounded waves-effect waves-light"></span>
 
                 <ul class="navbar-nav ml-auto">

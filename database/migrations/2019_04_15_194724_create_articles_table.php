@@ -14,12 +14,13 @@ class CreateArticlesTable extends Migration
   public function up()
   {
     Schema::create('articles', function (Blueprint $table) {
-      $table->bigIncrements('id')->unique()->index();
+      $table->increments('id')->unique()->index();
+      $table->integer('user_id')->unsigned()->index();
       $table->foreign('user_id')->references('id')->on('users');
-      $table->string('article_name');
+      $table->string('name');
       $table->string('slug')->index();
       $table->string('header_title');
-      $table->text('body');
+      $table->text('summary');
       $table->string('seo_title', 70);
       $table->string('meta_description', 150);
       $table->boolean('is_active')->default(0);

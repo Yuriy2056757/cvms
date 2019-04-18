@@ -38,7 +38,19 @@ class ArticleController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    $article = new Article();
+
+    $article->user_id = auth()->user()->id;
+    $article->name = request('name');
+    $article->slug = request('slug');
+    $article->header_title = request('header_title');
+    $article->summary = request('summary');
+    $article->seo_title = request('seo_title');
+    $article->seo_description = request('seo_description');
+
+    $article->save();
+
+    return redirect('/cvms/articles');
   }
 
   /**

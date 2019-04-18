@@ -80,9 +80,11 @@
                   <div class="card-body">
                     <div class="page-section">
                       <div class="d-flex justify-content-between">
-                        <h3 class="page-section-header">@yield('header_title')</h3>
+                        <h2 class="page-section-header">@yield('header_title')</h2>
 
-                        @yield('header_buttons')
+                        <div>
+                          @yield('header_buttons')
+                        </div>
                       </div>
 
                       @yield('content')

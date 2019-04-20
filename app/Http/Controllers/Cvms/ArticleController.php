@@ -42,7 +42,7 @@ class ArticleController extends Controller
 
     $article->user_id = auth()->user()->id;
     $article->name = request('name');
-    $article->slug = request('slug');
+    $article->slug = str_slug(request('slug'));
     $article->header_title = request('header_title');
     $article->summary = request('summary');
     $article->seo_title = request('seo_title');
@@ -72,7 +72,7 @@ class ArticleController extends Controller
    */
   public function edit(Article $article)
   {
-    //
+    return view('cvms.articles.edit', compact('article'));
   }
 
   /**
@@ -84,7 +84,16 @@ class ArticleController extends Controller
    */
   public function update(Request $request, Article $article)
   {
-    //
+    $article->name = request('name');
+    $article->slug = str_slug(request('slug'));
+    $article->header_title = request('header_title');
+    $article->summary = request('summary');
+    $article->seo_title = request('seo_title');
+    $article->seo_description = request('seo_description');
+
+    $article->save();
+
+    return redirect('/cvms/articles');
   }
 
   /**

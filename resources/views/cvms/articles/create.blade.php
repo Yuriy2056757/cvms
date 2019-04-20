@@ -4,7 +4,6 @@
 @section('header_title', 'Create article')
 
 @section('content')
-
 <form class="md-form" method="POST" action="/cvms/articles">
   @csrf
 
@@ -51,8 +50,7 @@
   </div>
 
   <div class="mt-2">
-    <a href="{{ route('articles.index') }}" class="btn btn-danger btn-block">CANCEL</a>
+    <a href="{{ route('articles.index') }}" class="btn btn-outline-danger waves-effect btn-block">CANCEL</a>
   </div>
 </form>
-
 @endsection

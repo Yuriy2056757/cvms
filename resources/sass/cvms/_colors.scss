@@ -1,7 +1,8 @@
 .color-default {
-    background-color: #3f51b5;
+  color: #fff !important;
+  background-color: #3f51b5;
 
-    &:hover {
-        color: #fff;
-    }
+  &:hover {
+    color: #fff;
+  }
 }

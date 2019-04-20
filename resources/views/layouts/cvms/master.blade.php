@@ -54,7 +54,9 @@
         {{-- Navbar --}}
         <div class="col p-0">
           <nav class="navbar navbar-expand-lg navbar-dark color-default position-absolute w-100">
-            <span id="hamburger" class="navbar-toggler-icon rounded waves-effect waves-light"></span>
+            <div id="hamburgerContainer" class="text-center h-100 rounded waves-effect waves-light"> 
+              <span id="hamburger" class="navbar-toggler-icon"></span>
+            </div>
 
             <ul class="navbar-nav ml-auto">
               <li class="nav-item dropdown">
@@ -75,7 +77,7 @@
             <div class="row mh-100 scrollable-panel">
 
               {{-- Page content --}}
-              <div class="col">
+              <div class="col content-section">
                 <div class="card m-1 mt-3">
                   <div class="card-body">
                     <div class="page-section">

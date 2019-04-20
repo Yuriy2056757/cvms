@@ -14,7 +14,7 @@ body,
 }
 
 .scrollable-panel {
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 100px !important;
 }
 
@@ -26,7 +26,9 @@ body,
 .page-section:not(:last-child) {
     margin-bottom: 15px;
 }
-#hamburger {
-    font-size: 20px;
-    color: #f5f5f5;
+
+.content-section {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1024px;
 }

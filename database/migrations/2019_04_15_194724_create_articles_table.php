@@ -22,7 +22,7 @@ class CreateArticlesTable extends Migration
       $table->string('header_title');
       $table->text('summary');
       $table->string('seo_title', 70);
-      $table->string('meta_description', 150);
+      $table->string('seo_description', 150);
       $table->boolean('is_active')->default(0);
       $table->timestamps();
     });

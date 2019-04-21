@@ -6,3 +6,12 @@
     color: #fff;
   }
 }
+
+.color-danger {
+  color: #fff !important;
+  background-color: #D32F2F;
+
+  &:hover {
+    color: #fff;
+  }
+}

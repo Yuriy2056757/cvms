@@ -46,11 +46,11 @@
 
   <div class="mt-5">
     <button class="btn color-default btn-block" type="submit">
-      CHANGE
+      UPDATE
     </button>
   </div>
 
-  <div class="mt-2">
+  <div class="mt-1">
     <a href="{{ route('articles.index') }}" class="btn btn-outline-danger waves-effect btn-block">CANCEL</a>
   </div>
 </form>

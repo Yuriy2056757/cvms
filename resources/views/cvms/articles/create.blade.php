@@ -38,7 +38,7 @@
   </div class="md-form">
 
   <div class="md-form">
-    <textarea name="summary" type="text" id="materialContactFormMessage" class="form-control md-textarea" rows="7"></textarea>
+    <textarea name="summary" type="text" id="materialContactFormMessage" class="form-control md-textarea" rows="6"></textarea>
 
     <label for="summary">Summary</label>
   </div class="md-form">

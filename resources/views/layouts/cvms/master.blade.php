@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
   <meta charset="UTF-8">
@@ -9,6 +9,10 @@
 
   <title>CVMS - @yield('title', 'Default Title')</title>
 
+  {{-- CSRF Token --}}
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+
+  {{-- Styles --}}
   <link rel="stylesheet" type="text/css" href="{{ asset(mix('css/app.css')) }}">
   <link rel="stylesheet" type="text/css" href="{{ asset(mix('css/mdb.css')) }}">
   <link rel="stylesheet" type="text/css" href="{{ asset(mix('css/cvms/cvms.css')) }}">
@@ -54,20 +58,24 @@
         {{-- Navbar --}}
         <div class="col p-0">
           <nav class="navbar navbar-expand-lg navbar-dark color-default position-absolute w-100">
-            <div id="hamburgerContainer" class="text-center h-100 rounded waves-effect waves-light"> 
+            <div id="hamburgerContainer" class="text-center h-100 rounded waves-effect waves-light">
               <span id="hamburger" class="navbar-toggler-icon"></span>
             </div>
 
             <ul class="navbar-nav ml-auto">
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle rounded" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true"
-                                                                                                                 aria-expanded="false">
-                  <i class="fa fa-user"></i>
+                <a class="nav-link dropdown-toggle rounded" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-user"></i> {{ Auth::user()->name }}
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
-                  <a class="dropdown-item" href="#">My account</a>
-                  <a class="dropdown-item" href="#">Logout</a>
+                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                  </a>
+
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                  </form>
                 </div>
               </li>
             </ul>
@@ -77,7 +85,7 @@
             <div class="row mh-100 scrollable-panel">
 
               {{-- Page content --}}
-              <div class="col content-section">
+              <div class="col content-section pb-5">
                 <div class="card m-1 mt-3">
                   <div class="card-body">
                     <div class="page-section">
@@ -101,6 +109,7 @@
     </div>
   </div>
 
+  {{-- Scripts --}}
   <script src="{{ asset(mix('js/app.js')) }}"></script>
 </body>
 

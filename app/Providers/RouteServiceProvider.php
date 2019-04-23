@@ -58,7 +58,7 @@ class RouteServiceProvider extends ServiceProvider
 
     protected function mapCvmsRoutes()
     {
-        Route::middleware('web')
+        Route::middleware('cvms')
             ->prefix('cvms')
             ->namespace($this->namespace . '\Cvms')
             ->group(base_path('routes/cvms.php'));

@@ -4,5 +4,5 @@
 @section('header_title', ucfirst(Route::getCurrentRoute()->getName()))
 
 @section('content')
-<p>You are logged in!</p>
+<p>You are logged in as an admin!</p>
 @endsection

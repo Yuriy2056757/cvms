@@ -15,8 +15,7 @@ class CreateArticlesTable extends Migration
   {
     Schema::create('articles', function (Blueprint $table) {
       $table->increments('id')->unique()->index();
-      $table->integer('user_id')->unsigned()->index();
-      $table->foreign('user_id')->references('id')->on('users');
+      $table->unsignedInteger('user_id')->index();
       $table->string('name');
       $table->string('slug')->index();
       $table->string('header_title');
@@ -25,6 +24,8 @@ class CreateArticlesTable extends Migration
       $table->string('seo_description', 150);
       $table->boolean('is_active')->default(0);
       $table->timestamps();
+
+      $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
     });
   }
 

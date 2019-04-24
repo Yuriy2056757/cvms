@@ -14,7 +14,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::where('user_id', auth()->id())->get();
 
         return view('cvms.articles.index', compact('articles'));
     }
@@ -38,7 +38,7 @@ class ArticleController extends Controller
     public function store()
     {
         Article::create([
-            'user_id' => auth()->user()->id,
+            'user_id' => auth()->id(),
             'name' => request('name'),
             'slug' => str_slug(request('slug')),
             'header_title' => request('header_title'),

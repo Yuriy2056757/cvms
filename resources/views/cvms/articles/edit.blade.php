@@ -1,57 +1,66 @@
 @extends('layouts.cvms.master')
 
 @section('title', 'Edit article')
-@section('header_title', 'Edit article')
 
 @section('content')
-<form class="md-form" method="POST" action="/cvms/articles/{{ $article->id }}/">
-  @method('PATCH')
-  @csrf
+<div class="card m-1 mt-3">
+  <div class="card-body">
+    <div class="page-section">
+      <div class="d-flex justify-content-between">
+        <h2 class="page-section-header">Edit article</h2>
+      </div>
 
-  <div class="md-form">
-    <input class="form-control" type="text" name="name" value="{{ $article->name }}">
+      <form class="md-form" method="POST" action="/cvms/articles/{{ $article->slug }}/">
+        @method('PATCH')
+        @csrf
 
-    <label for="name">Name</label>
-  </div class="md-form">
+        <div class="md-form">
+          <input class="form-control" type="text" name="name" value="{{ $article->name }}" required>
 
-  <div class="md-form">
-    <input class="form-control" type="text" name="slug" value="{{ $article->slug }}">
+          <label for="name">Name</label>
+        </div class="md-form">
 
-    <label for="slug">Slug</label>
-  </div class="md-form">
+        <div class="md-form">
+          <input class="form-control" type="text" name="slug" value="{{ $article->slug }}" required>
 
-  <div class="md-form">
-    <input class="form-control" type="text" name="seo_title" value="{{ $article->seo_title }}">
+          <label for="slug">Slug</label>
+        </div class="md-form">
 
-    <label for="seo_title">Search engine title</label>
-  </div class="md-form">
+        <div class="md-form">
+          <input class="form-control" type="text" name="seo_title" value="{{ $article->seo_title }}" required>
 
-  <div class="md-form">
-    <textarea name="seo_description" type="text" id="materialContactFormMessage" class="form-control md-textarea" rows="2">{{ $article->seo_description }}</textarea>
+          <label for="seo_title">Search engine title</label>
+        </div class="md-form">
 
-    <label for="seo_description">Search engine description</label>
-  </div class="md-form">
+        <div class="md-form">
+          <textarea name="seo_description" type="text" id="materialContactFormMessage" class="form-control md-textarea" rows="2" required>{{ $article->seo_description }}</textarea>
 
-  <div class="md-form mt-4">
-    <input class="form-control" type="text" name="header_title" value="{{ $article->header_title }}">
+          <label for="seo_description">Search engine description</label>
+        </div class="md-form">
 
-    <label for="header_title">Header title</label>
-  </div class="md-form">
+        <div class="md-form mt-4">
+          <input class="form-control" type="text" name="header_title" value="{{ $article->header_title }}" required>
 
-  <div class="md-form">
-    <textarea name="summary" type="text" id="materialContactFormMessage" class="form-control md-textarea" rows="6">{{ $article->summary }}</textarea>
+          <label for="header_title">Header title</label>
+        </div class="md-form">
 
-    <label for="summary">Summary</label>
-  </div class="md-form">
+        <div class="md-form">
+          <textarea name="summary" type="text" id="materialContactFormMessage" class="form-control md-textarea" rows="6" required>{{ $article->summary }}</textarea>
 
-  <div class="mt-5">
-    <button class="btn color-default btn-block" type="submit">
-      UPDATE
-    </button>
+          <label for="summary">Summary</label>
+        </div class="md-form">
+
+        <div class="mt-5">
+          <button class="btn color-default btn-block" type="submit">
+            UPDATE
+          </button>
+        </div>
+
+        <div class="mt-1">
+          <a href="{{ route('articles.index') }}" class="btn btn-outline-danger waves-effect btn-block">CANCEL</a>
+        </div>
+      </form>
+    </div>
   </div>
-
-  <div class="mt-1">
-    <a href="{{ route('articles.index') }}" class="btn btn-outline-danger waves-effect btn-block">CANCEL</a>
-  </div>
-</form>
+</div>
 @endsection

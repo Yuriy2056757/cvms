@@ -1,8 +1,17 @@
 @extends('layouts.cvms.master')
 
-@section('title', ucfirst(Route::getCurrentRoute()->getName()))
-@section('header_title', ucfirst(Route::getCurrentRoute()->getName()))
+@section('title', 'Home')
 
 @section('content')
-<p>You are logged in as an admin!</p>
+<div class="card m-1 mt-3">
+  <div class="card-body">
+    <div class="page-section">
+      <div class="d-flex justify-content-between">
+        <h2 class="page-section-header">Home</h2>
+      </div>
+
+      <p>You are logged in as an admin!</p>
+    </div>
+  </div>
+</div>
 @endsection

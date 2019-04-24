@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>CVMS - @yield('title', 'Default Title')</title>
+  <title>CVMS - @yield('title', 'No title found')</title>
 
   {{-- CSRF Token --}}
   <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -25,7 +25,7 @@
       <div class="row mh-100">
 
         {{-- Side nav --}}
-        <div id="sideNav" class="d-none d-md-block sidebar-nav col p-0 mh-100">
+        <div id="sideNav" class="d-none d-lg-block sidebar-nav col p-0 mh-100">
           <div class="card mh-100 rounded-0">
             <div class="card-body p-0 mh-100">
               <div id="sideNavLogo">
@@ -69,13 +69,13 @@
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
-                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
-                  </a>
-
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                   </form>
+
+                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                  </a>
                 </div>
               </li>
             </ul>
@@ -86,21 +86,7 @@
 
               {{-- Page content --}}
               <div class="col content-section pb-5">
-                <div class="card m-1 mt-3">
-                  <div class="card-body">
-                    <div class="page-section">
-                      <div class="d-flex justify-content-between">
-                        <h2 class="page-section-header">@yield('header_title')</h2>
-
-                        <div>
-                          @yield('header_buttons')
-                        </div>
-                      </div>
-
-                      @yield('content')
-                    </div>
-                  </div>
-                </div>
+                @yield('content')
               </div>
             </div>
           </div>

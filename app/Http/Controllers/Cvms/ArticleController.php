@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Cvms;
 
 use App\Article;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class ArticleController extends Controller
@@ -36,19 +35,17 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        $article = new Article();
-
-        $article->user_id = auth()->user()->id;
-        $article->name = request('name');
-        $article->slug = str_slug(request('slug'));
-        $article->header_title = request('header_title');
-        $article->summary = request('summary');
-        $article->seo_title = request('seo_title');
-        $article->seo_description = request('seo_description');
-
-        $article->save();
+        Article::create([
+            'user_id' => auth()->user()->id,
+            'name' => request('name'),
+            'slug' => str_slug(request('slug')),
+            'header_title' => request('header_title'),
+            'summary' => request('summary'),
+            'seo_title' => request('seo_title'),
+            'seo_description' => request('seo_description'),
+        ]);
 
         return redirect('/cvms/articles');
     }
@@ -61,7 +58,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        return view('cvms.articles.show', compact('article'));
     }
 
     /**
@@ -82,16 +79,16 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $article)
+    public function update(Article $article)
     {
-        $article->name = request('name');
-        $article->slug = str_slug(request('slug'));
-        $article->header_title = request('header_title');
-        $article->summary = request('summary');
-        $article->seo_title = request('seo_title');
-        $article->seo_description = request('seo_description');
-
-        $article->save();
+        $article->update([
+            'name' => request('name'),
+            'slug' => str_slug(request('slug')),
+            'header_title' => request('header_title'),
+            'summary' => request('summary'),
+            'seo_title' => request('seo_title'),
+            'seo_description' => request('seo_description'),
+        ]);
 
         return redirect('/cvms/articles');
     }

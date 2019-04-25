@@ -10,7 +10,7 @@ class ShowArticle extends Controller
     {
 
         // Cache the query for 10 seconds
-        $article = Article::where('slug', $slug)->firstOrFail();
+        $article = Article::where('slug', $slug)->remember(10)->firstOrFail();
 
         // Show the Article resource if it's active
         if ($article->is_active) {

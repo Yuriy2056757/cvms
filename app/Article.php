@@ -2,10 +2,16 @@
 
 namespace App;
 
+use Watson\Rememberable\Rememberable;
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
+
+    // Import package for caching
+    use Rememberable;
+
+    // Define allowed assignments
     protected $fillable = [
         'user_id',
         'name',

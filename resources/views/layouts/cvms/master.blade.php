@@ -81,10 +81,9 @@
             </ul>
           </nav>
 
+          {{-- Page content --}}
           <div class="container-fluid mh-100 offset-navigation">
             <div class="row mh-100 scrollable-panel">
-
-              {{-- Page content --}}
               <div class="col content-section pb-5">
                 @yield('content')
               </div>

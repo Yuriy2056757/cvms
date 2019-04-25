@@ -18,3 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Declare routing for public CVs (Article resources)
+Route::get('/cv/{slug}', 'ShowArticle');

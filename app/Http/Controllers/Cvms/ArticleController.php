@@ -45,6 +45,7 @@ class ArticleController extends Controller
             'summary' => request('summary'),
             'seo_title' => request('seo_title'),
             'seo_description' => request('seo_description'),
+            'is_active' => request()->has('is_active'),
         ]);
 
         return redirect('/cvms/articles');
@@ -88,6 +89,7 @@ class ArticleController extends Controller
             'summary' => request('summary'),
             'seo_title' => request('seo_title'),
             'seo_description' => request('seo_description'),
+            'is_active' => request()->has('is_active'),
         ]);
 
         return redirect('/cvms/articles');

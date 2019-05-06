@@ -7,8 +7,7 @@
     padding-top: 56px;
 }
 
-// Disable mouse selection on form labels
-div.md-form > label {
+.disable-selection {
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
@@ -16,6 +15,11 @@ div.md-form > label {
     -o-user-select: none;
     user-select: none;
     cursor: default;
+}
+
+// Disable mouse selection on form labels
+div.md-form > label {
+    @extend .disable-selection;
 }
 
 html,

@@ -50,6 +50,11 @@
           <label for="summary">Summary</label>
         </div class="md-form">
 
+        <div class="ml-4 custom-control custom-checkbox">
+        <input name="is_active" type="checkbox" class="custom-control-input" id="defaultUnchecked" {{ $article->is_active ? 'checked' : '' }}>
+          <label class="custom-control-label disable-selection" for="defaultUnchecked">Publish article</label>
+        </div>
+
         <div class="mt-5">
           <button class="btn color-default btn-block" type="submit">
             UPDATE

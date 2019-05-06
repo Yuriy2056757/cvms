@@ -20,6 +20,7 @@ class Article extends Model
         'summary',
         'seo_title',
         'seo_description',
+        'is_active',
     ];
 
     /**

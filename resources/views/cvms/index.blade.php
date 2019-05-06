@@ -10,7 +10,7 @@
         <h2 class="page-section-header">Home</h2>
       </div>
 
-      <p>You are logged in as an admin!</p>
+      <p>You are logged in as an admin.</p>
     </div>
   </div>
 </div>

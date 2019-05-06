@@ -32,16 +32,16 @@
           <label for="seo_title">Search engine title</label>
         </div class="md-form">
 
-        <div class="md-form">
-          <textarea name="seo_description" type="text" id="materialContactFormMessage" class="form-control md-textarea" rows="2" required>{{ $article->seo_description }}</textarea>
-
-          <label for="seo_description">Search engine description</label>
-        </div class="md-form">
-
         <div class="md-form mt-4">
           <input class="form-control" type="text" name="header_title" value="{{ $article->header_title }}" required>
 
           <label for="header_title">Header title</label>
+        </div class="md-form">
+
+        <div class="md-form">
+          <textarea name="seo_description" type="text" id="materialContactFormMessage" class="form-control md-textarea" rows="2" required>{{ $article->seo_description }}</textarea>
+
+          <label for="seo_description">Search engine description</label>
         </div class="md-form">
 
         <div class="md-form">

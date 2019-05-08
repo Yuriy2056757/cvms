@@ -37,6 +37,17 @@ class ArticleController extends Controller
      */
     public function store()
     {
+
+        // Redirect if inputs are not valid
+        request()->validate([
+            'name' => 'required',
+            'slug' => 'required',
+            'header_title' => 'required',
+            'summary' => 'required',
+            'seo_title' => 'required',
+            'seo_description' => 'required',
+        ]);
+
         Article::create([
             'user_id' => auth()->id(),
             'name' => request('name'),

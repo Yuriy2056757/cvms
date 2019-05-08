@@ -93,6 +93,17 @@ class ArticleController extends Controller
      */
     public function update(Article $article)
     {
+
+        // Redirect if inputs are not valid
+        request()->validate([
+            'name' => 'required',
+            'slug' => 'required',
+            'header_title' => 'required',
+            'summary' => 'required',
+            'seo_title' => 'required',
+            'seo_description' => 'required',
+        ]);
+
         $article->update([
             'name' => request('name'),
             'slug' => str_slug(request('slug')),

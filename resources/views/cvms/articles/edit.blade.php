@@ -14,6 +14,16 @@
         @method('PATCH')
         @csrf
 
+        @if ($errors->any())
+          <div class="alert alert-danger pb-0">
+            <ul>
+              @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+          </div>
+        @endif
+
         <div class="md-form">
           <input class="form-control" type="text" name="name" value="{{ $article->name }}" required>
 

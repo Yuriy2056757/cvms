@@ -23,7 +23,8 @@ class CreateExperiencesTable extends Migration
             $table->dateTime('date_end');
             $table->timestamps();
 
-            $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade');
+            $table->foreign('article_id')->references('id')->on('articles')
+                ->onDelete('cascade');
         });
     }
 

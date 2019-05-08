@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Cvms;
 
 use App\Experience;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ExperienceController extends Controller
 {
@@ -33,7 +33,7 @@ class ExperienceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
         //
     }
@@ -67,7 +67,7 @@ class ExperienceController extends Controller
      * @param  \App\Experience  $experience
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Experience $experience)
+    public function update(Experience $experience)
     {
         //
     }

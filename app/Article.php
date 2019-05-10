@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Experience;
 use Watson\Rememberable\Rememberable;
 use Illuminate\Database\Eloquent\Model;
 
@@ -31,5 +32,10 @@ class Article extends Model
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    public function experiences()
+    {
+        return $this->hasMany(Experience::class);
     }
 }

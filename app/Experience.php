@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Article;
 use Watson\Rememberable\Rememberable;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,4 +20,9 @@ class Experience extends Model
         'date_start',
         'date_end',
     ];
+
+    public function article()
+    {
+        return $this->belongsTo(Article::class);
+    }
 }

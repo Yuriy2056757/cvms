@@ -48,13 +48,15 @@
         </div class="md-form">
 
         <div class="md-form">
-          <textarea name="seo_description" type="text" id="materialContactFormMessage" class="form-control md-textarea" rows="2" required></textarea>
+          <textarea name="seo_description" type="text" id="materialContactFormMessage" class="form-control md-textarea"
+            rows="2" required></textarea>
 
           <label for="seo_description">Search engine description</label>
         </div class="md-form">
 
         <div class="md-form">
-          <textarea name="summary" type="text" id="materialContactFormMessage" class="form-control md-textarea" rows="6" required></textarea>
+          <textarea name="summary" type="text" id="materialContactFormMessage" class="form-control md-textarea"
+            rows="6" required></textarea>
 
           <label for="summary">Summary</label>
         </div class="md-form">

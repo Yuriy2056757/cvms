@@ -81,7 +81,9 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        return view('cvms.articles.edit', compact('article'));
+        $experiences = $article->experiences;
+
+        return view('cvms.articles.edit', compact('article', 'experiences'));
     }
 
     /**

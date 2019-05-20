@@ -34,6 +34,7 @@ class Article extends Model
         return 'slug';
     }
 
+    // Get the experiences for the article.
     public function experiences()
     {
         return $this->hasMany(Experience::class);

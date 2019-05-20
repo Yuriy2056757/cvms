@@ -21,6 +21,7 @@ class Experience extends Model
         'date_end',
     ];
 
+    // Get the article that owns the experience.
     public function article()
     {
         return $this->belongsTo(Article::class);

@@ -16,7 +16,7 @@ class CreateExperiencesTable extends Migration
         Schema::create('experiences', function (Blueprint $table) {
             $table->increments('id')->unique()->index();
             $table->unsignedInteger('article_id')->index();
-            $table->string('company_name');
+            $table->string('company');
             $table->string('title');
             $table->text('description');
             $table->dateTime('date_start');

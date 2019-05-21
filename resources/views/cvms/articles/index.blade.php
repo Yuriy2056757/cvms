@@ -42,7 +42,7 @@
               <td class="text-right">
                 @if ($article->is_active)
                   <a class="btn btn-sm color-default pr-3 pl-3 m-0" href="/cv/{{ $article->slug }}">
-                    <i class="fa fa-eye"></i>
+                    <i class="fa fa-globe"></i>
                   </a>
                 @endif
 

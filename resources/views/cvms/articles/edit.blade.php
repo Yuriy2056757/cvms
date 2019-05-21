@@ -62,64 +62,6 @@
           <label for="summary">Summary</label>
         </div class="md-form">
 
-        <h4>Experience</h4>
-
-        @if ($article->experiences->count())
-          <div class="container">
-            @foreach ($experiences as $experience)
-              <div class="row">
-                <div class="col-sm">
-                  <div class="row">
-                    {{ $experience->company_name }}
-                  </div>
-
-                  <div class="row">
-                    {{
-
-                      // Format job start date
-                      $date_start = Carbon\Carbon::createFromTimestamp(
-                        strtotime($experience->date_start)
-                      )->isoFormat('MMM Y')
-                    }}
-
-                    -
-
-                    {{
-
-                      // Format job end date
-                      $date_end = Carbon\Carbon::createFromTimestamp(
-                        strtotime($experience->date_end)
-                      )->isoFormat('MMM Y')
-                    }}
-
-                    &#8226;
-
-                    {{
-
-                      // Format difference between job start & end date
-                      Carbon\Carbon::createFromTimestamp(strtotime($experience->date_start))->diffInMonths(
-                        Carbon\Carbon::createFromTimestamp(strtotime($experience->date_end))
-                      )
-                    }}
-
-                    mos
-                  </div>
-                </div>
-
-                <div class="col-sm">
-                  <div class="row">
-                    {{ $experience->title }}
-                  </div>
-
-                  <div class="row">
-                    {{ $experience->description }}
-                  </div>
-                </div>
-              </div>
-            @endforeach
-          </div>
-        @endif
-
         <div class="ml-4 custom-control custom-checkbox">
           <input name="is_active" type="checkbox" class="custom-control-input" id="defaultUnchecked"
             {{ $article->is_active ? 'checked' : '' }}>

@@ -70,7 +70,9 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        return view('cvms.articles.show', compact('article'));
+        $experiences = $article->experiences;
+
+        return view('cvms.articles.show', compact('article', 'experiences'));
     }
 
     /**
@@ -81,9 +83,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        $experiences = $article->experiences;
-
-        return view('cvms.articles.edit', compact('article', 'experiences'));
+        return view('cvms.articles.edit', compact('article'));
     }
 
     /**

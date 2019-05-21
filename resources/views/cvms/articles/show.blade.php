@@ -10,7 +10,11 @@
         <h2 class="page-section-header text-justify">{{ $article->header_title }}</h2>
 
         @if (Auth::user()->is_admin)
-          <a href="/cvms/articles/{{ $article->slug }}/edit">EDIT</a>
+          <div>
+            <a class="btn btn-sm color-default pr-3 pl-3 m-0" href="/cvms/articles/{{ $article->slug }}/edit">
+              <i class="fa fa-pencil"></i>
+            </a>
+          </div>
         @endif
       </div>
 
@@ -32,7 +36,7 @@
       <div class="container">
         @foreach ($experiences as $experience)
           <div class="row">
-            <div class="col-sm">
+            <div class="col-sm-4">
               <div class="row">
                 {{ $experience->company_name }}
               </div>
@@ -70,7 +74,7 @@
               </div>
             </div>
 
-            <div class="col-sm">
+            <div class="col-sm-8">
               <div class="row">
                 {{ $experience->title }}
               </div>
@@ -81,20 +85,23 @@
             </div>
           </div>
 
-          <div class="row d-md-flex justify-content-between">
-            @if (Auth::user()->is_admin)
-              <div>
+          @if (Auth::user()->is_admin)
+            <div class="row float-right">
+                <a class="btn btn-sm color-default pr-3 pl-3 m-0" href="/cvms/experiences/{{ $article->slug }}">
+                  <i class="fa fa-pencil"></i>
+                </a>
 
-              </div>
+                <form class="d-inline ml-1" onsubmit="return confirm('Delete item?');" method="POST"
+                  action="/cvms/experiences/{{ $article->slug }}">
+                  @method('DELETE')
+                  @csrf
 
-              <div>
-                <a href="/cvms/experiences/{{ $experience->slug }}/edit">EDIT</a>
-
-                {{-- NEEDS TO BE A FORM TO DELETE --}}
-                <a href="/cvms/experiences/{{ $experience->slug }}/">DELETE</a>
-              </div>
-            @endif
-          </div>
+                  <button type="submit" class="btn btn-sm color-danger pr-3 pl-3 m-0">
+                    <i class="fa fa-trash"></i>
+                  </button>
+                </form>
+            </div>
+          @endif
         @endforeach
       </div>
     </div>

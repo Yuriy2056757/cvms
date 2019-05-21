@@ -129,6 +129,6 @@ class ArticleController extends Controller
     {
         $article->delete();
 
-        return redirect('/cvms/articles');
+        return back();
     }
 }

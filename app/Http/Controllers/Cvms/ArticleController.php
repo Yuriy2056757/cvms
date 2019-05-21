@@ -59,7 +59,7 @@ class ArticleController extends Controller
             'is_active' => request()->has('is_active'),
         ]);
 
-        return redirect('/cvms/articles');
+        return redirect(route('articles.index'));
     }
 
     /**
@@ -116,7 +116,7 @@ class ArticleController extends Controller
             'is_active' => request()->has('is_active'),
         ]);
 
-        return redirect('/cvms/articles');
+        return redirect(route('articles.show', $article));
     }
 
     /**

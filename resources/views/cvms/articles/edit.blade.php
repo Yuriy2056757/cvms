@@ -10,7 +10,7 @@
         <h2 class="page-section-header">Edit article</h2>
       </div>
 
-      <form class="md-form" method="POST" action="/cvms/articles/{{ $article->slug }}/">
+      <form class="md-form" method="POST" action="{{ route('articles.update', $article) }}/">
         @method('PATCH')
         @csrf
 
@@ -28,39 +28,39 @@
           <input class="form-control" type="text" name="name" value="{{ $article->name }}" required>
 
           <label for="name">Name</label>
-        </div class="md-form">
+        </div>
 
         <div class="md-form">
           <input class="form-control" type="text" name="slug" value="{{ $article->slug }}" required>
 
           <label for="slug">Slug</label>
-        </div class="md-form">
+        </div>
 
         <div class="md-form">
           <input class="form-control" type="text" name="seo_title" value="{{ $article->seo_title }}" required>
 
           <label for="seo_title">Search engine title</label>
-        </div class="md-form">
+        </div>
 
         <div class="md-form mt-4">
           <input class="form-control" type="text" name="header_title" value="{{ $article->header_title }}" required>
 
           <label for="header_title">Header title</label>
-        </div class="md-form">
+        </div>
 
         <div class="md-form">
           <textarea name="seo_description" type="text" id="materialContactFormMessage" class="form-control md-textarea"
             rows="2" required>{{ $article->seo_description }}</textarea>
 
           <label for="seo_description">Search engine description</label>
-        </div class="md-form">
+        </div>
 
         <div class="md-form">
           <textarea name="summary" type="text" id="materialContactFormMessage" class="form-control md-textarea"
             rows="6" required>{{ $article->summary }}</textarea>
 
           <label for="summary">Summary</label>
-        </div class="md-form">
+        </div>
 
         <div class="ml-4 custom-control custom-checkbox">
           <input name="is_active" type="checkbox" class="custom-control-input" id="defaultUnchecked"
@@ -75,7 +75,8 @@
         </div>
 
         <div class="mt-1">
-          <a href="{{ route('articles.index') }}" class="btn btn-outline-danger waves-effect btn-block">CANCEL</a>
+          <a href="{{ route('articles.show', $article) }}"
+            class="btn btn-outline-danger waves-effect btn-block">CANCEL</a>
         </div>
       </form>
     </div>

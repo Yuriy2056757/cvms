@@ -31,6 +31,11 @@
     <div class="page-section">
       <div class="d-flex justify-content-between">
         <h2 class="page-section-header">Experience</h2>
+
+        <div>
+          <a href="{{ route('articles.experiences.create', $article) }}"
+            class="btn color-default m-0 d-inline-block">ADD NEW</a>
+        </div>
       </div>
 
       <div class="container">
@@ -38,7 +43,7 @@
           <div class="row">
             <div class="col-sm-4">
               <div class="row">
-                {{ $experience->company_name }}
+                {{ $experience->company }}
               </div>
 
               <div class="row">
@@ -87,19 +92,20 @@
 
           @if (Auth::user()->is_admin)
             <div class="row float-right">
-                <a class="btn btn-sm color-default pr-3 pl-3 m-0" href="/cvms/experiences/{{ $article->slug }}">
-                  <i class="fa fa-pencil"></i>
-                </a>
+              <a class="btn btn-sm color-default pr-3 pl-3 m-0"
+                href="{{ route('articles.experiences.edit', [$article, $experience]) }}">
+                <i class="fa fa-pencil"></i>
+              </a>
 
-                <form class="d-inline ml-1" onsubmit="return confirm('Delete item?');" method="POST"
-                  action="/cvms/experiences/{{ $article->slug }}">
-                  @method('DELETE')
-                  @csrf
+              <form class="d-inline ml-1" onsubmit="return confirm('Delete item?');" method="POST"
+                action="{{ route('articles.experiences.destroy', [$article, $experience]) }}">
+                @method('DELETE')
+                @csrf
 
-                  <button type="submit" class="btn btn-sm color-danger pr-3 pl-3 m-0">
-                    <i class="fa fa-trash"></i>
-                  </button>
-                </form>
+                <button type="submit" class="btn btn-sm color-danger pr-3 pl-3 m-0">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </form>
             </div>
           @endif
         @endforeach
@@ -108,4 +114,9 @@
   </div>
 </div>
 @endif
+
+<div class="mt-2">
+  <a href="{{ route('articles.index') }}"
+    class="btn btn-outline-danger waves-effect btn-block">BACK</a>
+</div>
 @endsection

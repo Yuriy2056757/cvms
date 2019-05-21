@@ -80,6 +80,21 @@
               </div>
             </div>
           </div>
+
+          <div class="row d-md-flex justify-content-between">
+            @if (Auth::user()->is_admin)
+              <div>
+
+              </div>
+
+              <div>
+                <a href="/cvms/experiences/{{ $experience->slug }}/edit">EDIT</a>
+
+                {{-- NEEDS TO BE A FORM TO DELETE --}}
+                <a href="/cvms/experiences/{{ $experience->slug }}/">DELETE</a>
+              </div>
+            @endif
+          </div>
         @endforeach
       </div>
     </div>

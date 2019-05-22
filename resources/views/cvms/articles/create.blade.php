@@ -36,7 +36,7 @@
         </div>
 
         <div class="md-form">
-          <input class="form-control" type="text" name="seo_title" required>
+          <input class="form-control" type="text" name="seo_title" maxlength="70" required>
 
           <label for="seo_title">Search engine title</label>
         </div>
@@ -49,7 +49,7 @@
 
         <div class="md-form">
           <textarea name="seo_description" type="text" id="materialContactFormMessage" class="form-control md-textarea"
-            rows="2" required></textarea>
+            rows="2" maxlength="150" required></textarea>
 
           <label for="seo_description">Search engine description</label>
         </div>

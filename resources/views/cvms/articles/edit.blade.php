@@ -37,7 +37,8 @@
         </div>
 
         <div class="md-form">
-          <input class="form-control" type="text" name="seo_title" value="{{ $article->seo_title }}" required>
+          <input class="form-control" type="text" name="seo_title" value="{{ $article->seo_title }}"
+            maxlength="70" required>
 
           <label for="seo_title">Search engine title</label>
         </div>
@@ -50,7 +51,7 @@
 
         <div class="md-form">
           <textarea name="seo_description" type="text" id="materialContactFormMessage" class="form-control md-textarea"
-            rows="2" required>{{ $article->seo_description }}</textarea>
+            rows="2" maxlength="150" required>{{ $article->seo_description }}</textarea>
 
           <label for="seo_description">Search engine description</label>
         </div>

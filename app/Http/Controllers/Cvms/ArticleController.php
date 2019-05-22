@@ -44,8 +44,8 @@ class ArticleController extends Controller
             'slug' => 'required',
             'header_title' => 'required',
             'summary' => 'required',
-            'seo_title' => 'required',
-            'seo_description' => 'required',
+            'seo_title' => 'required|max:70',
+            'seo_description' => 'required|max:150',
         ]);
 
         Article::create([
@@ -102,8 +102,8 @@ class ArticleController extends Controller
             'slug' => 'required',
             'header_title' => 'required',
             'summary' => 'required',
-            'seo_title' => 'required',
-            'seo_description' => 'required',
+            'seo_title' => 'required|max:70',
+            'seo_description' => 'required|max:150',
         ]);
 
         $article->update([

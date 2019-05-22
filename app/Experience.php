@@ -12,6 +12,12 @@ class Experience extends Model
     // Import package for caching
     use Rememberable;
 
+    // Set custom date fields to be parsed automatically
+    protected $dates = [
+        'date_start',
+        'date_end',
+    ];
+
     // Define allowed assignments
     protected $fillable = [
         'company_name',

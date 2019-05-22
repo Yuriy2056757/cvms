@@ -34,3 +34,9 @@ Breadcrumbs::for('articles.experiences.create', function ($trail, $article) {
     $trail->parent('articles.show', $article);
     $trail->push('Add Experience', route('articles.experiences.create', $article));
 });
+
+// Home > Articles > [Article] > Experiences > [Experience] > Edit
+Breadcrumbs::for('articles.experiences.edit', function ($trail, $article, $experience) {
+    $trail->parent('articles.show', $article);
+    $trail->push($experience->title, route('articles.experiences.edit', [$article, $experience]));
+});

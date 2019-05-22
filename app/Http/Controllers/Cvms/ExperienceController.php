@@ -24,9 +24,9 @@ class ExperienceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Article $article)
+    public function create(Article $article, Request $request)
     {
-        return view('cvms.experiences.create', compact('article'));
+        return view('cvms.experiences.create', compact('article', 'request'));
     }
 
     /**
@@ -80,7 +80,7 @@ class ExperienceController extends Controller
      */
     public function edit(Article $article, Experience $experience)
     {
-        //
+        return view('cvms.experiences.edit', compact('article', 'experience'));
     }
 
     /**
@@ -95,7 +95,27 @@ class ExperienceController extends Controller
         Experience $experience,
         Request $request
     ) {
-        //
+
+        // Redirect if inputs are not valid
+        $request->validate([
+            'company' => 'required',
+            'title' => 'required',
+            'description' => 'required',
+            'description' => 'required',
+            'date_start' => 'required|date|before:date_end',
+            'date_end' => 'required|date|after:date_start',
+        ]);
+
+        $experience->update([
+            'company' => $request->company,
+            'title' => $request->title,
+            'description' => $request->description,
+            'description' => $request->description,
+            'date_start' => $request->date_start,
+            'date_end' => $request->date_end,
+        ]);
+
+        return redirect(route('articles.show', $article));
     }
 
     /**

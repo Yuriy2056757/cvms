@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Cvms;
 
 use App\Article;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class ArticleController extends Controller
@@ -35,11 +36,11 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
 
         // Redirect if inputs are not valid
-        request()->validate([
+        $request->validate([
             'name' => 'required',
             'slug' => 'required',
             'header_title' => 'required',
@@ -56,7 +57,7 @@ class ArticleController extends Controller
             'summary' => request('summary'),
             'seo_title' => request('seo_title'),
             'seo_description' => request('seo_description'),
-            'is_active' => request()->has('is_active'),
+            'is_active' => $request->has('is_active'),
         ]);
 
         return redirect(route('articles.index'));
@@ -93,11 +94,11 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Article $article)
+    public function update(Article $article, Request $request)
     {
 
         // Redirect if inputs are not valid
-        request()->validate([
+        $request->validate([
             'name' => 'required',
             'slug' => 'required',
             'header_title' => 'required',
@@ -113,7 +114,7 @@ class ArticleController extends Controller
             'summary' => request('summary'),
             'seo_title' => request('seo_title'),
             'seo_description' => request('seo_description'),
-            'is_active' => request()->has('is_active'),
+            'is_active' => $request->has('is_active'),
         ]);
 
         return redirect(route('articles.show', $article));

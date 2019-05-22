@@ -37,7 +37,26 @@ class ExperienceController extends Controller
      */
     public function store(Article $article, Request $request)
     {
-        return $request;
+
+        // Redirect if inputs are not valid
+        $request->validate([
+            'company' => 'required',
+            'title' => 'required',
+            'description' => 'required',
+            'summary' => 'required',
+            'date_start' => 'required|date|before:date_end',
+            'date_end' => 'required|date|after:date_start',
+        ]);
+
+        Article::create([
+            'article_id' => $article->id,
+            'company' => $request->company,
+            'title' => $request->title,
+            'description' => $request->description,
+            'summary' => $request->summary,
+            'date_start' => $request->date_start,
+            'date_end' => Carbon::parse($request->date_end),
+        ]);
 
         return redirect(route('articles.show', $article));
     }

@@ -51,12 +51,12 @@ class ArticleController extends Controller
 
         Article::create([
             'user_id' => auth()->id(),
-            'name' => request('name'),
-            'slug' => str_slug(request('slug')),
-            'header_title' => request('header_title'),
-            'summary' => request('summary'),
-            'seo_title' => request('seo_title'),
-            'seo_description' => request('seo_description'),
+            'name' => $request->name,
+            'slug' => str_slug($request->slug),
+            'header_title' => $request->header_title,
+            'summary' => $request->summary,
+            'seo_title' => $request->seo_title,
+            'seo_description' => $request->seo_description,
             'is_active' => $request->has('is_active'),
         ]);
 
@@ -108,12 +108,12 @@ class ArticleController extends Controller
         ]);
 
         $article->update([
-            'name' => request('name'),
-            'slug' => str_slug(request('slug')),
-            'header_title' => request('header_title'),
-            'summary' => request('summary'),
-            'seo_title' => request('seo_title'),
-            'seo_description' => request('seo_description'),
+            'name' => $request->name,
+            'slug' => str_slug($request->slug),
+            'header_title' => $request->header_title,
+            'summary' => $request->summary,
+            'seo_title' => $request->seo_title,
+            'seo_description' => $request->seo_description,
             'is_active' => $request->has('is_active'),
         ]);
 

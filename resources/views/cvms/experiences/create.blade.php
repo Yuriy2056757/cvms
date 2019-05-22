@@ -24,20 +24,20 @@
         @endif
 
         <div class="md-form">
-          <input class="form-control" type="text" name="company" required>
+          <input class="form-control" type="text" name="company" value="{{ old('company') }}" required>
 
           <label for="name">Company name</label>
         </div>
 
         <div class="md-form">
-          <input class="form-control" type="text" name="title" required>
+          <input class="form-control" type="text" name="title" value="{{ old('title') }}" required>
 
           <label for="slug">Job title</label>
         </div>
 
         <div class="md-form">
           <textarea name="description" type="text" id="materialContactFormMessage" class="form-control md-textarea"
-            rows="6" required></textarea>
+            rows="6" required>{{ old('description') }}</textarea>
 
           <label for="description">Job description</label>
         </div>
@@ -47,7 +47,7 @@
             Date start
           </div>
 
-          <input type="date" name="date_start" required>
+          <input type="date" name="date_start" value="{{ old('date_start') }}" required>
         </div>
 
         <div class="mt-3">
@@ -55,7 +55,7 @@
             Date end
           </div>
 
-          <input type="date" name="date_end" required>
+          <input type="date" name="date_end" value="{{ old('date_end') }}" required>
         </div>
 
         <div class="mt-5">

@@ -24,39 +24,40 @@
         @endif
 
         <div class="md-form">
-          <input class="form-control" type="text" name="name" required>
+          <input class="form-control" type="text" name="name" value="{{ old('name') }}" required>
 
           <label for="name">Name</label>
         </div>
 
         <div class="md-form">
-          <input class="form-control" type="text" name="slug" required>
+          <input class="form-control" type="text" name="slug" value="{{ old('slug') }}" required>
 
           <label for="slug">Slug</label>
         </div>
 
         <div class="md-form">
-          <input class="form-control" type="text" name="seo_title" maxlength="70" required>
+          <input class="form-control" type="text" name="seo_title" maxlength="70" value="{{ old('seo_title') }}"
+            required>
 
           <label for="seo_title">Search engine title</label>
         </div>
 
         <div class="md-form mt-4">
-          <input class="form-control" type="text" name="header_title" required>
+          <input class="form-control" type="text" name="header_title" value="{{ old('header_title') }}" required>
 
           <label for="header_title">Header title</label>
         </div>
 
         <div class="md-form">
           <textarea name="seo_description" type="text" id="materialContactFormMessage" class="form-control md-textarea"
-            rows="2" maxlength="150" required></textarea>
+            rows="2" maxlength="150" required>{{ old('seo_description') }}</textarea>
 
           <label for="seo_description">Search engine description</label>
         </div>
 
         <div class="md-form">
           <textarea name="summary" type="text" id="materialContactFormMessage" class="form-control md-textarea"
-            rows="6" required></textarea>
+            rows="6" required>{{ old('summary') }}</textarea>
 
           <label for="summary">Summary</label>
         </div>

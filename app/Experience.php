@@ -20,7 +20,8 @@ class Experience extends Model
 
     // Define allowed assignments
     protected $fillable = [
-        'company_name',
+        'article_id',
+        'company',
         'title',
         'description',
         'date_start',

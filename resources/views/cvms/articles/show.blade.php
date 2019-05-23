@@ -100,26 +100,24 @@
                 </div>
               </div>
 
-              @if (Auth::user()->is_admin)
-                <div class="col-sm-2">
-                  <div class="row flex-row-reverse">
-                    <a class="btn btn-sm color-default pr-3 pl-3 m-0"
-                      href="{{ route('articles.experiences.edit', [$article, $experience]) }}">
-                      <i class="fa fa-pencil"></i>
-                    </a>
+              <div class="col-sm-2">
+                <div class="row flex-row-reverse">
+                  <a class="btn btn-sm color-default pr-3 pl-3 m-0"
+                    href="{{ route('articles.experiences.edit', [$article, $experience]) }}">
+                    <i class="fa fa-pencil"></i>
+                  </a>
 
-                    <form class="d-inline mr-1" onsubmit="return confirm('Delete item?');" method="POST"
-                      action="{{ route('articles.experiences.destroy', [$article, $experience]) }}">
-                      @method('DELETE')
-                      @csrf
+                  <form class="d-inline mr-1" onsubmit="return confirm('Delete item?');" method="POST"
+                    action="{{ route('articles.experiences.destroy', [$article, $experience]) }}">
+                    @method('DELETE')
+                    @csrf
 
-                      <button type="submit" class="btn btn-sm color-danger pr-3 pl-3 m-0">
-                        <i class="fa fa-trash"></i>
-                      </button>
-                    </form>
-                  </div>
+                    <button type="submit" class="btn btn-sm color-danger pr-3 pl-3 m-0">
+                      <i class="fa fa-trash"></i>
+                    </button>
+                  </form>
                 </div>
-              @endif
+              </div>
             </div>
           @endforeach
         </div>

@@ -9,7 +9,7 @@
 
   <title>CVMS - @yield('title', 'No title found')</title>
 
-  {{-- CSRF Token --}}
+  {{-- CSRF token --}}
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   {{-- Styles --}}

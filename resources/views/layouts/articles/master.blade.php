@@ -7,9 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>@yield('title', 'No title found')</title>
+  {{-- SEO title --}}
+  <title>@yield('title', 'CVMS')</title>
 
-  {{-- CSRF Token --}}
+  {{-- SEO description --}}
+  <meta name="description" content="@yield('description', 'Curriculum Vitae Management System')">
+
+  {{-- CSRF token --}}
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   {{-- Styles --}}

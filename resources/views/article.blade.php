@@ -1,6 +1,7 @@
 @extends('layouts.articles.master')
 
-@section('title', $article->name)
+@section('title', $article->seo_title)
+@section('description', $article->seo_description)
 
 @section('content')
 <div class="card m-1 mt-3">

@@ -6,16 +6,20 @@
 <div class="card m-1 mt-3">
   <div class="card-body">
     <div class="page-section">
-      <div class="d-md-flex justify-content-between">
-        <h2 class="page-section-header text-justify">{{ $article->header_title }}</h2>
-
-        @if (Auth::user()->is_admin)
-          <div>
-            <a class="btn btn-sm color-default pr-3 pl-3 m-0" href="/cvms/articles/{{ $article->slug }}/edit">
-              <i class="fa fa-pencil"></i>
-            </a>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 p-0">
+            <h2 class="page-section-header text-justify">{{ $article->header_title }}</h2>
           </div>
-        @endif
+
+          <div class="col-sm-2">
+            <div class="row flex-row-reverse">
+              <a class="btn btn-sm color-default pr-3 pl-3 m-0" href="/cvms/articles/{{ $article->slug }}/edit">
+                <i class="fa fa-pencil"></i>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
 
       <p>
@@ -29,17 +33,23 @@
 <div class="card m-1 mt-3">
   <div class="card-body">
     <div class="page-section">
-      <div class="d-flex justify-content-between">
-        <h2 class="page-section-header">Experience</h2>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 p-0">
+            <h2 class="page-section-header text-justify">Experience</h2>
+          </div>
 
-        <div>
-          <a href="{{ route('articles.experiences.create', $article) }}"
-            class="btn color-default m-0 d-inline-block">ADD NEW</a>
+          <div class="col-sm-4">
+            <div class="row flex-row-reverse">
+              <a href="{{ route('articles.experiences.create', $article) }}"
+                class="btn color-default m-0 d-inline-block">ADD NEW</a>
+            </div>
+          </div>
         </div>
       </div>
 
       @if ($article->experiences->count())
-        <div class="container">
+        <div class="container pt-3">
           @foreach ($experiences as $experience)
             <div class="row">
               <div class="col-sm-4">
@@ -80,7 +90,7 @@
                 </div>
               </div>
 
-              <div class="col-sm-8">
+              <div class="col-sm-6">
                 <div class="row">
                   {{ $experience->title }}
                 </div>
@@ -89,26 +99,28 @@
                   {{ $experience->description }}
                 </div>
               </div>
+
+              @if (Auth::user()->is_admin)
+                <div class="col-sm-2">
+                  <div class="row flex-row-reverse">
+                    <a class="btn btn-sm color-default pr-3 pl-3 m-0"
+                      href="{{ route('articles.experiences.edit', [$article, $experience]) }}">
+                      <i class="fa fa-pencil"></i>
+                    </a>
+
+                    <form class="d-inline mr-1" onsubmit="return confirm('Delete item?');" method="POST"
+                      action="{{ route('articles.experiences.destroy', [$article, $experience]) }}">
+                      @method('DELETE')
+                      @csrf
+
+                      <button type="submit" class="btn btn-sm color-danger pr-3 pl-3 m-0">
+                        <i class="fa fa-trash"></i>
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              @endif
             </div>
-
-            @if (Auth::user()->is_admin)
-              <div class="row float-right">
-                <a class="btn btn-sm color-default pr-3 pl-3 m-0"
-                  href="{{ route('articles.experiences.edit', [$article, $experience]) }}">
-                  <i class="fa fa-pencil"></i>
-                </a>
-
-                <form class="d-inline ml-1" onsubmit="return confirm('Delete item?');" method="POST"
-                  action="{{ route('articles.experiences.destroy', [$article, $experience]) }}">
-                  @method('DELETE')
-                  @csrf
-
-                  <button type="submit" class="btn btn-sm color-danger pr-3 pl-3 m-0">
-                    <i class="fa fa-trash"></i>
-                  </button>
-                </form>
-              </div>
-            @endif
           @endforeach
         </div>
       @endif

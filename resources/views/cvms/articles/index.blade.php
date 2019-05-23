@@ -6,11 +6,17 @@
 <div class="card m-1 mt-3">
   <div class="card-body">
     <div class="page-section">
-      <div class="d-flex justify-content-between">
-        <h2 class="page-section-header">Articles</h2>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 p-0">
+            <h2 class="page-section-header text-justify">Articles</h2>
+          </div>
 
-        <div>
-          <a href="{{ route('articles.create') }}" class="btn color-default m-0 d-inline-block">CREATE NEW</a>
+          <div class="col-sm-4">
+            <div class="row flex-row-reverse">
+              <a href="{{ route('articles.create') }}" class="btn color-default m-0 d-inline-block">CREATE NEW</a>
+            </div>
+          </div>
         </div>
       </div>
 

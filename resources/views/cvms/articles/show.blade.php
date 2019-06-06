@@ -61,9 +61,7 @@
                   {{
 
                     // Format job start date
-                    $date_start = Carbon\Carbon::createFromTimestamp(
-                      strtotime($experience->date_start)
-                    )->isoFormat('MMM Y')
+                    $date_start = $experience->date_start->isoFormat('MMM Y')
                   }}
 
                   -
@@ -71,9 +69,7 @@
                   {{
 
                     // Format job end date
-                    $date_end = Carbon\Carbon::createFromTimestamp(
-                      strtotime($experience->date_end)
-                    )->isoFormat('MMM Y')
+                    $date_end = $experience->date_end->isoFormat('MMM Y')
                   }}
 
                   &#8226;
@@ -81,9 +77,7 @@
                   {{
 
                     // Format difference between job start & end date
-                    Carbon\Carbon::createFromTimestamp(strtotime($experience->date_start))->diffInMonths(
-                      Carbon\Carbon::createFromTimestamp(strtotime($experience->date_end))
-                    )
+                    $experience->date_start->diffInMonths($experience->date_end)
                   }}
 
                   mos

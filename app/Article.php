@@ -39,4 +39,10 @@ class Article extends Model
     {
         return $this->hasMany(Experience::class);
     }
+
+    // Get the qualifications for the article.
+    public function qualifications()
+    {
+        return $this->hasMany(Qualification::class);
+    }
 }

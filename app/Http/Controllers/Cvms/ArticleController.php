@@ -72,8 +72,13 @@ class ArticleController extends Controller
     public function show(Article $article)
     {
         $experiences = $article->experiences;
+        $qualifications = $article->qualifications;
 
-        return view('cvms.articles.show', compact('article', 'experiences'));
+        return view('cvms.articles.show', compact(
+            'article',
+            'experiences',
+            'qualifications'
+        ));
     }
 
     /**

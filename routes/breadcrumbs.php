@@ -50,3 +50,25 @@ Breadcrumbs::for('articles.experiences.edit', function (
         route('articles.experiences.edit', [$article, $experience])
     );
 });
+
+// Home > Articles > [Article] > Qualifications > Create
+Breadcrumbs::for('articles.qualifications.create', function ($trail, $article) {
+    $trail->parent('articles.show', $article);
+    $trail->push(
+        'Add Experience',
+        route('articles.qualifications.create', $article)
+    );
+});
+
+// Home > Articles > [Article] > Qualifications > [Qualification] > Edit
+Breadcrumbs::for('articles.qualifications.edit', function (
+    $trail,
+    $article,
+    $experience
+) {
+    $trail->parent('articles.show', $article);
+    $trail->push(
+        $experience->title,
+        route('articles.qualifications.edit', [$article, $experience])
+    );
+});

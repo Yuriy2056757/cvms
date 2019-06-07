@@ -43,7 +43,6 @@ class ExperienceController extends Controller
             'company' => 'required',
             'title' => 'required',
             'description' => 'required',
-            'description' => 'required',
             'date_start' => 'required|date|before:date_end',
             'date_end' => 'required|date|after:date_start',
         ]);
@@ -52,7 +51,6 @@ class ExperienceController extends Controller
             'article_id' => $article->id,
             'company' => $request->company,
             'title' => $request->title,
-            'description' => $request->description,
             'description' => $request->description,
             'date_start' => $request->date_start,
             'date_end' => $request->date_end,
@@ -101,7 +99,6 @@ class ExperienceController extends Controller
             'company' => 'required',
             'title' => 'required',
             'description' => 'required',
-            'description' => 'required',
             'date_start' => 'required|date|before:date_end',
             'date_end' => 'required|date|after:date_start',
         ]);
@@ -109,7 +106,6 @@ class ExperienceController extends Controller
         $experience->update([
             'company' => $request->company,
             'title' => $request->title,
-            'description' => $request->description,
             'description' => $request->description,
             'date_start' => $request->date_start,
             'date_end' => $request->date_end,

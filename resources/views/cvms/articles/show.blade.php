@@ -51,10 +51,12 @@
       @if ($article->experiences->count())
         <div class="container pt-3">
           @foreach ($experiences as $experience)
-            <div class="row">
+            <div class="row experience-item">
               <div class="col-sm-4">
                 <div class="row">
-                  {{ $experience->company }}
+                  <strong>
+                    {{ $experience->company }}
+                  </strong>
                 </div>
 
                 <div class="row">
@@ -86,7 +88,9 @@
 
               <div class="col-sm-6">
                 <div class="row">
-                  {{ $experience->title }}
+                  <strong>
+                    {{ $experience->title }}
+                  </strong>
                 </div>
 
                 <div class="row">

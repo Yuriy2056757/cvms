@@ -12,9 +12,12 @@ class ShowArticle extends Controller
         // Cache the query for 10 seconds
         $article = Article::where('slug', $slug)->remember(10)->firstOrFail();
 
+        // Get the experiences associated with the Article
+        $experiences = $article->experiences;
+
         // Show the Article resource if it's active
         if ($article->is_active) {
-            return view('article', compact('article'));
+            return view('article', compact('article', 'experiences'));
         }
 
         abort(404);

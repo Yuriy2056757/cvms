@@ -3,7 +3,7 @@
 @section('title', 'Home')
 
 @section('content')
-<div class="card m-1 mt-3">
+<div class="card">
   <div class="card-body">
     <div class="page-section">
       <div class="d-flex justify-content-between">

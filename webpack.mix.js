@@ -13,22 +13,23 @@ const mix = require('laravel-mix');
 
 mix.scripts(
   [
-    'resources/js/app.js',
     'node_modules/mdbootstrap/js/popper.min.js',
     'node_modules/mdbootstrap/js/jquery-3.3.1.min.js',
     'node_modules/mdbootstrap/js/bootstrap.min.js',
     'node_modules/mdbootstrap/js/mdb.min.js'
   ],
-  'public/js/app.js'
+  'public/js/cvms/cvms.js'
 )
+  .scripts(
+    [
+      'resources/js/cvms/custom.js'
+    ],
+    'public/js/cvms/custom.js'
+  )
   .styles(
     'node_modules/mdbootstrap/css/bootstrap.min.css',
-    'public/css/app.css'
+    'public/css/cvms/mdb-bootstrap.css'
   )
-  .sass('node_modules/mdbootstrap/scss/mdb.scss', 'public/css/mdb.css')
-  .sass('resources/sass/app.scss', 'public/css/app.css')
-  .sass(
-    'resources/sass/cvms/cvms.scss',
-    'public/css/cvms/cvms.css'
-  )
+  .sass('node_modules/mdbootstrap/scss/mdb.scss', 'public/css/cvms/mdb.css')
+  .sass('resources/sass/cvms/custom.scss', 'public/css/cvms/custom.css')
   .browserSync('localhost:8000');

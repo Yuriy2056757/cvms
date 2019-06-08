@@ -3,7 +3,7 @@
 @section('title', 'Add experience')
 
 @section('content')
-<div class="card m-1 mt-3">
+<div class="card">
   <div class="card-body">
     <div class="page-section">
       <div class="d-flex justify-content-between">
@@ -36,7 +36,7 @@
         </div>
 
         <div class="md-form">
-          <textarea name="description" type="text" id="materialContactFormMessage" class="form-control md-textarea"
+          <textarea name="description" type="text" class="form-control md-textarea"
             rows="6" required>{{ old('description') }}</textarea>
 
           <label for="description">Job description</label>

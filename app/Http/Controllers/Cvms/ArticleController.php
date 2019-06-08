@@ -58,6 +58,7 @@ class ArticleController extends Controller
             'seo_title' => $request->seo_title,
             'seo_description' => $request->seo_description,
             'is_active' => $request->has('is_active'),
+            'robots' => $request->has('robots'),
         ]);
 
         return redirect(route('articles.index'));
@@ -120,6 +121,7 @@ class ArticleController extends Controller
             'seo_title' => $request->seo_title,
             'seo_description' => $request->seo_description,
             'is_active' => $request->has('is_active'),
+            'robots' => $request->has('robots'),
         ]);
 
         return redirect(route('articles.show', $article));

@@ -3,7 +3,7 @@
 @section('title', 'Articles')
 
 @section('content')
-<div class="card m-1 mt-3">
+<div class="card">
   <div class="card-body">
     <div class="page-section">
       <div class="container">
@@ -14,7 +14,7 @@
 
           <div class="col-sm-4">
             <div class="row flex-row-reverse">
-              <a href="{{ route('articles.create') }}" class="btn color-default m-0 d-inline-block">CREATE NEW</a>
+              <a href="{{ route('articles.create') }}" class="btn blue-gradient m-0 d-inline-block">CREATE NEW</a>
             </div>
           </div>
         </div>

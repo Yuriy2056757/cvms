@@ -2,9 +2,10 @@
 
 @section('title', $article->seo_title)
 @section('description', $article->seo_description)
+@section('robots', $article->robots ? 'index, follow' : 'noindex, nofollow')
 
 @section('content')
-<div class="card m-1 mt-3">
+<div class="card mt-3">
   <div class="card-body">
     <div class="page-section">
       <div class="d-md-flex justify-content-between">
@@ -19,7 +20,7 @@
 </div>
 
 {{-- Experience --}}
-<div class="card m-1 mt-3">
+<div class="card mt-3">
   <div class="card-body">
     <div class="page-section">
       <div class="container">
@@ -90,7 +91,7 @@
 </div>
 
 {{-- Qualifications --}}
-<div class="card m-1 mt-3">
+<div class="card mt-3">
   <div class="card-body">
     <div class="page-section">
       <div class="container">

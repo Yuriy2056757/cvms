@@ -23,6 +23,7 @@ class CreateArticlesTable extends Migration
       $table->string('seo_title', 70);
       $table->string('seo_description', 150);
       $table->boolean('is_active')->default(0);
+      $table->boolean('robots')->default(0);
       $table->timestamps();
 
       $table->foreign('user_id')->references('id')->on('users')

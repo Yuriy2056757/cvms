@@ -1,6 +1,7 @@
 {
-    "/css/mdb.css": "/css/mdb.css",
-    "/css/app.css": "/css/app.css",
-    "/css/cvms/cvms.css": "/css/cvms/cvms.css",
-    "/js/app.js": "/js/app.js"
+    "/css/cvms/mdb.css": "/css/cvms/mdb.css",
+    "/css/cvms/custom.css": "/css/cvms/custom.css",
+    "/js/cvms/cvms.js": "/js/cvms/cvms.js",
+    "/js/cvms/custom.js": "/js/cvms/custom.js",
+    "/css/cvms/mdb-bootstrap.css": "/css/cvms/mdb-bootstrap.css"
 }

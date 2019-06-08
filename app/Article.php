@@ -22,6 +22,7 @@ class Article extends Model
         'seo_title',
         'seo_description',
         'is_active',
+        'robots',
     ];
 
     /**

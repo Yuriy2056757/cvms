@@ -13,14 +13,18 @@
   {{-- SEO description --}}
   <meta name="description" content="@yield('description', 'Curriculum Vitae Management System')">
 
+  {{-- Robots --}}
+  <meta name="robots" content="@yield('robots', 'noindex, nofollow')">
+
   {{-- CSRF token --}}
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   {{-- Styles --}}
-  <link rel="stylesheet" type="text/css" href="{{ asset(mix('css/app.css')) }}">
-  <link rel="stylesheet" type="text/css" href="{{ asset(mix('css/mdb.css')) }}">
-  <link rel="stylesheet" type="text/css" href="{{ asset(mix('css/cvms/cvms.css')) }}">
-  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="{{ asset(mix('css/cvms/mdb-bootstrap.css')) }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset(mix('css/cvms/mdb.css')) }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset(mix('css/cvms/custom.css')) }}">
+  <link rel="stylesheet" type="text/css"
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body class="grey lighten-3">
@@ -41,7 +45,7 @@
   </div>
 
   {{-- Scripts --}}
-  <script src="{{ asset(mix('js/app.js')) }}"></script>
+  <script src="{{ asset(mix('js/cvms/cvms.js')) }}"></script>
 </body>
 
 </html>

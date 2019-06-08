@@ -3,7 +3,7 @@
 @section('title', 'Edit article')
 
 @section('content')
-<div class="card m-1 mt-3">
+<div class="card">
   <div class="card-body">
     <div class="page-section">
       <div class="d-flex justify-content-between">
@@ -50,23 +50,31 @@
         </div>
 
         <div class="md-form">
-          <textarea name="seo_description" type="text" id="materialContactFormMessage" class="form-control md-textarea"
+          <textarea name="seo_description" type="text" class="form-control md-textarea"
             rows="2" maxlength="150" required>{{ $article->seo_description }}</textarea>
 
           <label for="seo_description">Search engine description</label>
         </div>
 
         <div class="md-form">
-          <textarea name="summary" type="text" id="materialContactFormMessage" class="form-control md-textarea"
+          <textarea name="summary" type="text" class="form-control md-textarea"
             rows="6" required>{{ $article->summary }}</textarea>
 
           <label for="summary">Summary</label>
         </div>
 
         <div class="ml-4 custom-control custom-checkbox">
-          <input name="is_active" type="checkbox" class="custom-control-input" id="defaultUnchecked"
+          <input name="is_active" type="checkbox" class="custom-control-input" id="is_active"
             {{ $article->is_active ? 'checked' : '' }}>
-          <label class="custom-control-label disable-selection" for="defaultUnchecked">Publish article</label>
+          <label class="custom-control-label disable-selection" for="is_active">Publish article</label>
+        </div>
+
+        <div class="ml-4 custom-control custom-checkbox">
+          <input name="robots" type="checkbox" class="custom-control-input" id="robots"
+            {{ $article->robots ? 'checked' : '' }}>
+          <label class="custom-control-label disable-selection" for="robots">
+            Allow search engine indexing
+          </label>
         </div>
 
         <div class="mt-5">

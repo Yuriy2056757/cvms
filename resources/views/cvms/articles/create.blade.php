@@ -3,7 +3,7 @@
 @section('title', 'Create article')
 
 @section('content')
-<div class="card m-1 mt-3">
+<div class="card">
   <div class="card-body">
     <div class="page-section">
       <div class="d-flex justify-content-between">
@@ -63,8 +63,15 @@
         </div>
 
         <div class="ml-4 custom-control custom-checkbox">
-          <input name="is_active" type="checkbox" class="custom-control-input" id="defaultUnchecked">
-          <label class="custom-control-label disable-selection" for="defaultUnchecked">Publish article</label>
+          <input name="is_active" type="checkbox" class="custom-control-input" id="is_active">
+          <label class="custom-control-label disable-selection" for="is_active">Publish article</label>
+        </div>
+
+        <div class="ml-4 custom-control custom-checkbox">
+          <input name="robots" type="checkbox" class="custom-control-input" id="robots">
+          <label class="custom-control-label disable-selection" for="robots">
+            Allow search engine indexing
+          </label>
         </div>
 
         <div class="mt-5">

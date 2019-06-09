@@ -2,7 +2,6 @@
 
 namespace App;
 
-use App\Article;
 use Watson\Rememberable\Rememberable;
 use Illuminate\Database\Eloquent\Model;
 

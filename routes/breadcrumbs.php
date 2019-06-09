@@ -94,3 +94,25 @@ Breadcrumbs::for('articles.skills.edit', function (
         route('articles.skills.edit', [$article, $skill])
     );
 });
+
+// Home > Articles > [Article] > Contact Info > Create
+Breadcrumbs::for('articles.contact_infos.create', function ($trail, $article) {
+    $trail->parent('articles.show', $article);
+    $trail->push(
+        'Add Contact Info',
+        route('articles.contact_infos.create', $article)
+    );
+});
+
+// Home > Articles > [Article] > Contact Info > [ContactInfo] > Edit
+Breadcrumbs::for('articles.contact_infos.edit', function (
+    $trail,
+    $article,
+    $contactInfo
+) {
+    $trail->parent('articles.show', $article);
+    $trail->push(
+        $contactInfo->title,
+        route('articles.contact_infos.edit', [$article, $contactInfo])
+    );
+});

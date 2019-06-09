@@ -51,4 +51,10 @@ class Article extends Model
     {
         return $this->hasMany(Skill::class);
     }
+
+    // Get the contact info for the article.
+    public function contactInfos()
+    {
+        return $this->hasMany(ContactInfo::class);
+    }
 }

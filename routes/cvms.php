@@ -13,3 +13,6 @@ Route::resource('articles.qualifications', 'QualificationController');
 
 // Set up standard RESTful routes for Skill resources
 Route::resource('articles.skills', 'SkillController');
+
+// Set up standard RESTful routes for ContactInfo resources
+Route::resource('articles.contact_infos', 'ContactInfoController');

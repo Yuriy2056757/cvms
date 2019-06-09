@@ -13,6 +13,67 @@
         </div>
       </div>
 
+      {{-- Contact info --}}
+      <div class="card mt-3">
+          <div class="card-body">
+            <div class="page-section">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-10 p-0">
+                    <h2 class="page-section-header text-justify">Contact info</h2>
+                  </div>
+
+                  <div class="col-sm-2">
+                    <div class="row flex-row-reverse">
+                      <a class="btn amy-crisp-gradient m-0 p-2 pl-3 pr-3 d-inline-block"
+                        href="{{ route('articles.contact_infos.create', $article) }}">
+                        <i class="fa fa-plus"></i></a>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              @if ($article->contactInfos->count())
+                <div class="container">
+                  @foreach ($contactInfos as $contactInfo)
+                    <div class="row contact-info-item">
+                      <div class="col-sm-7">
+                        <div>
+                          <b>{{ $contactInfo->title }}</b>
+                        </div>
+
+                        <div>
+                          {{ $contactInfo->description }}
+                        </div>
+                      </div>
+
+                      <div class="col-sm-5">
+                        <div class="row flex-row-reverse">
+                          <form class="d-inline ml-1" onsubmit="return confirm('Delete item?');" method="POST"
+                            action="{{ route('articles.contact_infos.destroy', [$article, $contactInfo]) }}">
+                            @method('DELETE')
+                            @csrf
+
+                            <button type="submit" class="btn btn-sm color-danger pr-3 pl-3 m-0">
+                              <i class="fa fa-trash"></i>
+                            </button>
+                          </form>
+
+                          <a class="btn btn-sm color-default pr-3 pl-3 m-0"
+                            href="{{ route('articles.contact_infos.edit', [$article, $contactInfo]) }}">
+                            <i class="fa fa-pencil"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  @endforeach
+                </div>
+              @endif
+            </div>
+          </div>
+        </div>
+
       {{-- Skills --}}
       <div class="card mt-3">
         <div class="card-body">

@@ -74,11 +74,13 @@ class ArticleController extends Controller
     {
         $experiences = $article->experiences;
         $qualifications = $article->qualifications;
+        $skills = $article->skills;
 
         return view('cvms.articles.show', compact(
             'article',
             'experiences',
-            'qualifications'
+            'qualifications',
+            'skills'
         ));
     }
 

@@ -2,7 +2,6 @@
 
 namespace App;
 
-use App\Experience;
 use Watson\Rememberable\Rememberable;
 use Illuminate\Database\Eloquent\Model;
 
@@ -45,5 +44,11 @@ class Article extends Model
     public function qualifications()
     {
         return $this->hasMany(Qualification::class);
+    }
+
+    // Get the skills for the article.
+    public function skills()
+    {
+        return $this->hasMany(Skill::class);
     }
 }

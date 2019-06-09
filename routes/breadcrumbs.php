@@ -55,7 +55,7 @@ Breadcrumbs::for('articles.experiences.edit', function (
 Breadcrumbs::for('articles.qualifications.create', function ($trail, $article) {
     $trail->parent('articles.show', $article);
     $trail->push(
-        'Add Experience',
+        'Add Qualification',
         route('articles.qualifications.create', $article)
     );
 });
@@ -64,11 +64,33 @@ Breadcrumbs::for('articles.qualifications.create', function ($trail, $article) {
 Breadcrumbs::for('articles.qualifications.edit', function (
     $trail,
     $article,
-    $experience
+    $qualification
 ) {
     $trail->parent('articles.show', $article);
     $trail->push(
-        $experience->title,
-        route('articles.qualifications.edit', [$article, $experience])
+        $qualification->title,
+        route('articles.qualifications.edit', [$article, $qualification])
+    );
+});
+
+// Home > Articles > [Article] > Skills > Create
+Breadcrumbs::for('articles.skills.create', function ($trail, $article) {
+    $trail->parent('articles.show', $article);
+    $trail->push(
+        'Add Skill',
+        route('articles.skills.create', $article)
+    );
+});
+
+// Home > Articles > [Article] > Skills > [Skill] > Edit
+Breadcrumbs::for('articles.skills.edit', function (
+    $trail,
+    $article,
+    $skill
+) {
+    $trail->parent('articles.show', $article);
+    $trail->push(
+        $skill->title,
+        route('articles.skills.edit', [$article, $skill])
     );
 });

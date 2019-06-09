@@ -24,17 +24,58 @@
 
                 <div class="col-sm-2">
                   <div class="row flex-row-reverse">
-                    <a class="btn btn-sm color-default pr-3 pl-3 m-0" href="/cvms/articles/{{ $article->slug }}/edit">
-                      <i class="fa fa-pencil"></i>
+                    <a class="btn aqua-gradient m-0 p-2 pl-3 pr-3 d-inline-block"
+                      href="{{ route('articles.skills.create', $article) }}">
+                      <i class="fa fa-plus"></i></a>
                     </a>
                   </div>
                 </div>
               </div>
             </div>
 
-            <p>
-              {{ $article->summary }}
-            </p>
+            @if ($article->skills->count())
+              <div class="container">
+                @foreach ($skills as $skill)
+                  <div class="row skill-item">
+                    <div class="col-sm-7">
+                      <div>
+                        {{ $skill->title }}
+                      </div>
+
+                      <div class="row progress">
+                        <div
+                          class="progress-bar purple-gradient"
+                          role="progressbar"
+                          style="width: {{ $skill->percentage }}%;"
+                          aria-valuenow="25"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        ></div>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-5">
+                      <div class="row flex-row-reverse">
+                        <form class="d-inline ml-1" onsubmit="return confirm('Delete item?');" method="POST"
+                          action="{{ route('articles.skills.destroy', [$article, $skill]) }}">
+                          @method('DELETE')
+                          @csrf
+
+                          <button type="submit" class="btn btn-sm color-danger pr-3 pl-3 m-0">
+                            <i class="fa fa-trash"></i>
+                          </button>
+                        </form>
+
+                        <a class="btn btn-sm color-default pr-3 pl-3 m-0"
+                          href="{{ route('articles.skills.edit', [$article, $skill]) }}">
+                          <i class="fa fa-pencil"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                @endforeach
+              </div>
+            @endif
           </div>
         </div>
       </div>
@@ -80,7 +121,7 @@
                 <div class="col-sm-4">
                   <div class="row flex-row-reverse">
                     <a href="{{ route('articles.experiences.create', $article) }}"
-                      class="btn blue-gradient m-0 p-2 pl-3 pr-3 d-inline-block"><i class="fa fa-plus"></i></a>
+                      class="btn aqua-gradient m-0 p-2 pl-3 pr-3 d-inline-block"><i class="fa fa-plus"></i></a>
                   </div>
                 </div>
               </div>
@@ -177,7 +218,7 @@
                 <div class="col-sm-4">
                   <div class="row flex-row-reverse">
                     <a href="{{ route('articles.qualifications.create', $article) }}"
-                      class="btn blue-gradient m-0 p-2 pl-3 pr-3 d-inline-block"><i class="fa fa-plus"></i></a>
+                      class="btn aqua-gradient m-0 p-2 pl-3 pr-3 d-inline-block"><i class="fa fa-plus"></i></a>
                   </div>
                 </div>
               </div>

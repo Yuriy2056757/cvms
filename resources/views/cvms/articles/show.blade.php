@@ -13,6 +13,7 @@
         </div>
       </div>
 
+      {{-- Skills --}}
       <div class="card mt-3">
         <div class="card-body">
           <div class="page-section">
@@ -24,7 +25,7 @@
 
                 <div class="col-sm-2">
                   <div class="row flex-row-reverse">
-                    <a class="btn aqua-gradient m-0 p-2 pl-3 pr-3 d-inline-block"
+                    <a class="btn amy-crisp-gradient m-0 p-2 pl-3 pr-3 d-inline-block"
                       href="{{ route('articles.skills.create', $article) }}">
                       <i class="fa fa-plus"></i></a>
                     </a>
@@ -44,7 +45,7 @@
 
                       <div class="row progress">
                         <div
-                          class="progress-bar purple-gradient"
+                          class="progress-bar sunny-morning-gradient"
                           role="progressbar"
                           style="width: {{ $skill->percentage }}%;"
                           aria-valuenow="25"
@@ -121,7 +122,7 @@
                 <div class="col-sm-4">
                   <div class="row flex-row-reverse">
                     <a href="{{ route('articles.experiences.create', $article) }}"
-                      class="btn aqua-gradient m-0 p-2 pl-3 pr-3 d-inline-block"><i class="fa fa-plus"></i></a>
+                      class="btn amy-crisp-gradient m-0 p-2 pl-3 pr-3 d-inline-block"><i class="fa fa-plus"></i></a>
                   </div>
                 </div>
               </div>
@@ -218,7 +219,7 @@
                 <div class="col-sm-4">
                   <div class="row flex-row-reverse">
                     <a href="{{ route('articles.qualifications.create', $article) }}"
-                      class="btn aqua-gradient m-0 p-2 pl-3 pr-3 d-inline-block"><i class="fa fa-plus"></i></a>
+                      class="btn amy-crisp-gradient m-0 p-2 pl-3 pr-3 d-inline-block"><i class="fa fa-plus"></i></a>
                   </div>
                 </div>
               </div>

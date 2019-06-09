@@ -29,7 +29,7 @@
       <div class="row mh-100">
 
         {{-- Side nav --}}
-        <div id="sideNav" class="d-none d-lg-block sidebar-nav col p-0 mh-100">
+        <div id="sideNav" class="d-lg-block sidebar-nav col p-0 mh-100">
           <div class="card mh-100 rounded-0">
             <div class="card-body p-0 mh-100">
               <div id="sideNavLogo">

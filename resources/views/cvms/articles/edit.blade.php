@@ -10,7 +10,8 @@
         <h2 class="page-section-header">Edit article</h2>
       </div>
 
-      <form class="md-form" method="POST" action="{{ route('articles.update', $article) }}/">
+      <form class="md-form" method="POST" action="{{ route('articles.update', $article) }}/"
+        enctype="multipart/form-data">
         @method('PATCH')
         @csrf
 
@@ -61,6 +62,30 @@
             rows="6" required>{{ $article->summary }}</textarea>
 
           <label for="summary">Summary</label>
+        </div>
+
+        <div>
+          @if ($article->image)
+            <div class="pb-3">
+              <img src="{{ asset('storage/' . $article->image) }}" alt="Image" class="rounded-circle img-fluid">
+            </div>
+          @endif
+
+          <div class="pb-2">
+            <input type="file" name="image">
+          </div>
+        </div>
+
+        <div class="md-form">
+          <input class="form-control" type="text" name="display_name" value="{{ $article->display_name }}" required>
+
+          <label for="display_name">Display name</label>
+        </div>
+
+        <div class="md-form">
+          <input class="form-control" type="text" name="display_subtitle" value="{{ $article->display_subtitle }}" required>
+
+          <label for="display_subtitle">Display subtitle</label>
         </div>
 
         <div class="ml-4 custom-control custom-checkbox">

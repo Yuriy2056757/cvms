@@ -20,6 +20,9 @@ class Article extends Model
         'summary',
         'seo_title',
         'seo_description',
+        'image',
+        'display_name',
+        'display_subtitle',
         'is_active',
         'robots',
     ];

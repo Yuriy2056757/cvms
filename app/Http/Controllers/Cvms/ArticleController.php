@@ -8,6 +8,23 @@ use App\Http\Controllers\Controller;
 
 class ArticleController extends Controller
 {
+
+    // Redirect if inputs are not valid
+    private function validateRequest(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'slug' => 'required',
+            'header_title' => 'required',
+            'summary' => 'required',
+            'seo_title' => 'required|max:70',
+            'seo_description' => 'required|max:150',
+            'image' => 'sometimes|file|image|max:5000',
+            'display_name' => 'required',
+            'display_subtitle' => 'required',
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -38,18 +55,9 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validateRequest($request);
 
-        // Redirect if inputs are not valid
-        $request->validate([
-            'name' => 'required',
-            'slug' => 'required',
-            'header_title' => 'required',
-            'summary' => 'required',
-            'seo_title' => 'required|max:70',
-            'seo_description' => 'required|max:150',
-        ]);
-
-        Article::create([
+        $requestArray = [
             'user_id' => auth()->id(),
             'name' => $request->name,
             'slug' => str_slug($request->slug),
@@ -57,9 +65,22 @@ class ArticleController extends Controller
             'summary' => $request->summary,
             'seo_title' => $request->seo_title,
             'seo_description' => $request->seo_description,
+            'display_name' => $request->display_name,
+            'display_subtitle' => $request->display_subtitle,
             'is_active' => $request->has('is_active'),
             'robots' => $request->has('robots'),
-        ]);
+        ];
+
+        if ($request->has('image')) {
+
+            // Append to the array so we don't have to query twice
+            $requestArray['image'] = $request->image->store(
+                'uploads/cvms',
+                'public'
+            );
+        }
+
+        Article::create($requestArray);
 
         return redirect(route('articles.index'));
     }
@@ -106,27 +127,31 @@ class ArticleController extends Controller
      */
     public function update(Article $article, Request $request)
     {
+        $this->validateRequest($request);
 
-        // Redirect if inputs are not valid
-        $request->validate([
-            'name' => 'required',
-            'slug' => 'required',
-            'header_title' => 'required',
-            'summary' => 'required',
-            'seo_title' => 'required|max:70',
-            'seo_description' => 'required|max:150',
-        ]);
-
-        $article->update([
+        $requestArray = [
             'name' => $request->name,
             'slug' => str_slug($request->slug),
             'header_title' => $request->header_title,
             'summary' => $request->summary,
             'seo_title' => $request->seo_title,
             'seo_description' => $request->seo_description,
+            'display_name' => $request->display_name,
+            'display_subtitle' => $request->display_subtitle,
             'is_active' => $request->has('is_active'),
             'robots' => $request->has('robots'),
-        ]);
+        ];
+
+        if ($request->has('image')) {
+
+            // Append to the array so we don't have to query twice
+            $requestArray['image'] = $request->image->store(
+                'uploads/cvms',
+                'public'
+            );
+        }
+
+        $article->update($requestArray);
 
         return redirect(route('articles.show', $article));
     }

@@ -10,7 +10,7 @@
         <h2 class="page-section-header">Create article</h2>
       </div>
 
-      <form class="md-form" method="POST" action="{{ route('articles.store') }}">
+      <form class="md-form" method="POST" action="{{ route('articles.store') }}" enctype="multipart/form-data">
         @csrf
 
         @if ($errors->any())
@@ -60,6 +60,22 @@
             rows="6" required>{{ old('summary') }}</textarea>
 
           <label for="summary">Summary</label>
+        </div>
+
+        <div>
+          <input type="file" name="image">
+        </div>
+
+        <div class="md-form">
+          <input class="form-control" type="text" name="display_name" value="{{ old('display_name') }}" required>
+
+          <label for="display_name">Display name</label>
+        </div>
+
+        <div class="md-form">
+          <input class="form-control" type="text" name="display_subtitle" value="{{ old('display_subtitle') }}" required>
+
+          <label for="display_subtitle">Display subtitle</label>
         </div>
 
         <div class="ml-4 custom-control custom-checkbox">

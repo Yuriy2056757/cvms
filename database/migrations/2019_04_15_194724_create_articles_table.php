@@ -22,6 +22,9 @@ class CreateArticlesTable extends Migration
       $table->text('summary');
       $table->string('seo_title', 70);
       $table->string('seo_description', 150);
+      $table->string('image')->nullable();
+      $table->string('display_name');
+      $table->string('display_subtitle');
       $table->boolean('is_active')->default(0);
       $table->boolean('robots')->default(0);
       $table->timestamps();

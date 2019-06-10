@@ -9,7 +9,17 @@
     <div class="col-sm-4">
       <div class="card">
         <div class="card-body">
-          Avatar
+          @if ($article->image)
+            <div class="pb-3">
+              <img
+                width="128"
+                height="128"
+                src="{{ asset('storage/' . $article->image) }}"
+                alt="Image"
+                class="rounded-circle img-fluid"
+              >
+            </div>
+          @endif
         </div>
       </div>
 

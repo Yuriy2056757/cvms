@@ -8,7 +8,7 @@
   <div class="row">
     <div class="col-sm-4">
       <div class="card">
-        <div class="card-body">
+        <div class="card-body align-self-center">
           @if ($article->image)
             <div class="pb-3">
               <img
@@ -20,6 +20,14 @@
               >
             </div>
           @endif
+
+          <div class="text-center h4">
+            {{ $article->display_name }}
+          </div>
+
+          <div class="text-center">
+            {{ $article->display_subtitle }}
+          </div>
         </div>
       </div>
 

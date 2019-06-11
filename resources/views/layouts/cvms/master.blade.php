@@ -74,8 +74,8 @@
 
                   @if (Auth::user()->image)
                     <img
-                      width="128"
-                      height="128"
+                      width="40"
+                      height="40"
                       src="{{ asset('storage/' . Auth::user()->image) }}"
                       alt="Image"
                       class="rounded-circle img-fluid"

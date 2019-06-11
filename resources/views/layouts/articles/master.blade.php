@@ -33,7 +33,7 @@
       <div class="row mh-100">
 
         {{-- Page content --}}
-        <div class="container-fluid mh-100 offset-navigation">
+        <div class="container-fluid mh-100">
           <div class="row mh-100 scrollable-panel">
             <div class="col content-section pb-5">
               @yield('content')

@@ -3,23 +3,30 @@
 @section('title', $article->name)
 
 @section('content')
-
 <div class="container p-0">
   <div class="row">
     <div class="col-sm-4">
       <div class="card">
         <div class="card-body align-self-center">
-          @if ($article->image)
-            <div class="pb-3">
+          <div class="pb-3">
+            @if ($article->image)
               <img
                 width="128"
                 height="128"
                 src="{{ asset('storage/' . $article->image) }}"
-                alt="Image"
+                alt="image"
                 class="rounded-circle img-fluid"
               >
-            </div>
-          @endif
+            @else
+              <img
+                width="128"
+                height="128"
+                src="http://lorempixel.com/256/256/"
+                alt="image"
+                class="rounded-circle img-fluid"
+              >
+            @endif
+          </div>
 
           <div class="text-center h4">
             {{ $article->display_name }}

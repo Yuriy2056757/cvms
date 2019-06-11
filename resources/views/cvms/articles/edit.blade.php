@@ -65,13 +65,19 @@
         </div>
 
         <div>
-          @if ($article->image)
-            <div class="pb-3">
-              <img src="{{ asset('storage/' . $article->image) }}" alt="Image" class="rounded-circle img-fluid">
-            </div>
-          @endif
+          <div class="mb-3">
+            Display avatar
+          </div>
 
-          <div class="pb-2">
+          <div class="mb-3">
+            @if ($article->image)
+              <img src="{{ asset('storage/' . $article->image) }}" alt="image" class="rounded-circle img-fluid">
+            @else
+              <img src="http://lorempixel.com/256/256/" alt="image" class="rounded-circle img-fluid">
+            @endif
+          </div>
+
+          <div class="mb-2">
             <input type="file" name="image">
           </div>
         </div>

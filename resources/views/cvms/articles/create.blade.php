@@ -63,6 +63,10 @@
         </div>
 
         <div>
+          <div class="mb-3">
+            Display avatar
+          </div>
+
           <input type="file" name="image">
         </div>
 

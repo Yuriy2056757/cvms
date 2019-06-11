@@ -15,16 +15,18 @@ class ShowArticle extends Controller
 
         // Get the experiences associated with the Article
         $experiences = $article->experiences;
-
-        // Get the qualifications associated with the Article
         $qualifications = $article->qualifications;
+        $skills = $article->skills;
+        $contactInfos = $article->contactInfos;
 
         // Show the Article resource if it's active
         if ($article->is_active) {
             return view('article', compact(
                 'article',
                 'experiences',
-                'qualifications'
+                'qualifications',
+                'skills',
+                'contactInfos'
             ));
         }
 

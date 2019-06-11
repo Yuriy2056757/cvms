@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Cvms;
 use App\Article;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -164,6 +165,10 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
+
+        // Unlink the Article's image from storage
+        Storage::disk('public')->delete($article->image);
+
         $article->delete();
 
         return back();

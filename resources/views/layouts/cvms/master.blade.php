@@ -68,15 +68,35 @@
 
             <ul class="navbar-nav ml-auto">
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle rounded" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+                <a class="nav-link rounded" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-user"></i> {{ Auth::user()->name }}
+                  {{ Auth::user()->name }}
+
+                  @if (Auth::user()->image)
+                    <img
+                      width="128"
+                      height="128"
+                      src="{{ asset('storage/' . Auth::user()->image) }}"
+                      alt="Image"
+                      class="rounded-circle img-fluid"
+                    >
+                  @else
+                    <img
+                      width="40"
+                      height="40"
+                      src="http://lorempixel.com/256/256/"
+                      alt="Image"
+                      class="rounded-circle img-fluid"
+                    >
+                  @endif
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                   </form>
+
+                  <a class="dropdown-item" href="{{ route('users.show', Auth::user()) }}">Profile</a>
 
                   <a class="dropdown-item" href="{{ route('logout') }}"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

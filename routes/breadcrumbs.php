@@ -5,6 +5,19 @@ Breadcrumbs::for('home', function ($trail) {
     $trail->push('Home', route('home'));
 });
 
+// Home > Users > [User]
+Breadcrumbs::for('users.show', function ($trail, $user) {
+    $trail->parent('home');
+    $trail->push('Profile', route('users.show', $user));
+});
+
+// Home > Users > [User] > Edit
+Breadcrumbs::for('users.edit', function ($trail, $user) {
+    $trail->parent('users.show', $user);
+    $trail->push('Edit', route('users.edit', $user));
+});
+
+
 // Home > Articles
 Breadcrumbs::for('articles.index', function ($trail) {
     $trail->parent('home');

@@ -1,6 +1,11 @@
-// Increase navbar z-index to overlap shadow
 .navbar {
+
+    // Increase navbar z-index to overlap shadow
     z-index: 10;
+
+    // Set a max height so the profile image height doesn't
+    // resize the navbar
+    max-height: 56px;
 }
 
 #hamburgerContainer {

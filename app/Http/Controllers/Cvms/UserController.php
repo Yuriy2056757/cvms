@@ -93,6 +93,14 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+
+        // Ensure we're deleting the user's own account
+        if ($user->id == auth()->id()) {
+            $user->delete();
+
+            return redirect('/');
+        }
+
+        return back();
     }
 }

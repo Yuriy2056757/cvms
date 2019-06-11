@@ -38,7 +38,17 @@
     </table>
 
     <a class="btn color-default ml-0">CHANGE PASSWORD</a>
-    <a class="btn color-danger">REMOVE ACCOUNT</a>
+
+    <form
+      class="d-inline"
+      onsubmit="return confirm('Are you sure you want to delete all your account data?');"
+      method="POST" action="{{ route('users.destroy', $user) }}"
+    >
+      @method('DELETE')
+      @csrf
+
+      <button type="submit" class="btn color-danger">REMOVE ACCOUNT</button>
+    </form>
   </div>
 </div>
 @endsection

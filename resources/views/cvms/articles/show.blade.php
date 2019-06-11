@@ -38,12 +38,12 @@
               <div class="container">
                 <div class="row">
                   <div class="col-sm-10 p-0">
-                    <h2 class="page-section-header text-justify">Contact info</h2>
+                    <h3 class="page-section-header text-justify">Contact info</h3>
                   </div>
 
                   <div class="col-sm-2">
                     <div class="row flex-row-reverse">
-                      <a class="btn amy-crisp-gradient m-0 p-2 pl-3 pr-3 d-inline-block"
+                      <a class="btn color-default m-0 p-2 pl-3 pr-3 d-inline-block"
                         href="{{ route('articles.contact_infos.create', $article) }}">
                         <i class="fa fa-plus"></i></a>
                       </a>
@@ -99,12 +99,12 @@
             <div class="container">
               <div class="row">
                 <div class="col-sm-10 p-0">
-                  <h2 class="page-section-header text-justify">Skills</h2>
+                  <h3 class="page-section-header text-justify">Skills</h3>
                 </div>
 
                 <div class="col-sm-2">
                   <div class="row flex-row-reverse">
-                    <a class="btn amy-crisp-gradient m-0 p-2 pl-3 pr-3 d-inline-block"
+                    <a class="btn color-default m-0 p-2 pl-3 pr-3 d-inline-block"
                       href="{{ route('articles.skills.create', $article) }}">
                       <i class="fa fa-plus"></i></a>
                     </a>
@@ -168,7 +168,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-sm-10 p-0">
-                  <h2 class="page-section-header text-justify">{{ $article->header_title }}</h2>
+                  <h3 class="page-section-header text-justify">{{ $article->header_title }}</h3>
                 </div>
 
                 <div class="col-sm-2">
@@ -195,13 +195,13 @@
             <div class="container">
               <div class="row">
                 <div class="col-sm-8 p-0">
-                  <h2 class="page-section-header text-justify">Experience</h2>
+                  <h3 class="page-section-header text-justify">Experience</h3>
                 </div>
 
                 <div class="col-sm-4">
                   <div class="row flex-row-reverse">
                     <a href="{{ route('articles.experiences.create', $article) }}"
-                      class="btn amy-crisp-gradient m-0 p-2 pl-3 pr-3 d-inline-block"><i class="fa fa-plus"></i></a>
+                      class="btn color-default m-0 p-2 pl-3 pr-3 d-inline-block"><i class="fa fa-plus"></i></a>
                   </div>
                 </div>
               </div>
@@ -292,13 +292,13 @@
             <div class="container">
               <div class="row">
                 <div class="col-sm-8 p-0">
-                  <h2 class="page-section-header text-justify">Qualifications</h2>
+                  <h3 class="page-section-header text-justify">Qualifications</h3>
                 </div>
 
                 <div class="col-sm-4">
                   <div class="row flex-row-reverse">
                     <a href="{{ route('articles.qualifications.create', $article) }}"
-                      class="btn amy-crisp-gradient m-0 p-2 pl-3 pr-3 d-inline-block"><i class="fa fa-plus"></i></a>
+                      class="btn color-default m-0 p-2 pl-3 pr-3 d-inline-block"><i class="fa fa-plus"></i></a>
                   </div>
                 </div>
               </div>

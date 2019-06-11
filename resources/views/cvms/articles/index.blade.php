@@ -14,7 +14,7 @@
 
           <div class="col-sm-4">
             <div class="row flex-row-reverse">
-              <a href="{{ route('articles.create') }}" class="btn amy-crisp-gradient m-0 d-inline-block">CREATE NEW</a>
+              <a href="{{ route('articles.create') }}" class="btn color-default m-0 d-inline-block">CREATE NEW</a>
             </div>
           </div>
         </div>

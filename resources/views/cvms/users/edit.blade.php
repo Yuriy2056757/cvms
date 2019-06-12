@@ -36,6 +36,24 @@
           <label for="email">Email</label>
         </div class="md-form">
 
+        <div class="md-form">
+          <input class="form-control" type="password" name="current_password">
+
+          <label for="name">Current password</label>
+        </div class="md-form">
+
+         <div class="md-form">
+          <input class="form-control" type="password" name="new_password">
+
+          <label for="name">New password</label>
+        </div class="md-form">
+
+         <div class="md-form">
+          <input class="form-control" type="password" name="new_password_confirmation">
+
+          <label for="name">Confirm password</label>
+        </div class="md-form">
+
         <div class="mt-5">
           <button class="btn color-default btn-block" type="submit">
             UPDATE

@@ -13,6 +13,24 @@
       </div>
     </div>
 
+    @if (Auth::user()->image)
+      <img
+        width="128"
+        height="128"
+        src="{{ asset('storage/' . Auth::user()->image) }}"
+        alt="Image"
+        class="rounded-circle img-fluid"
+      >
+    @else
+      <img
+        width="128"
+        height="128"
+        src="http://lorempixel.com/256/256/"
+        alt="Image"
+        class="rounded-circle img-fluid"
+      >
+    @endif
+
     <table class="table table-borderless table-responsive mt-4 mb-0">
       <tbody>
         <tr>
@@ -37,17 +55,15 @@
       </tbody>
     </table>
 
-    <a class="btn color-default ml-0">CHANGE PASSWORD</a>
-
     <form
       class="d-inline"
-      onsubmit="return confirm('Are you sure you want to delete all your account data?');"
+      onsubmit="return confirm('Are you sure you want to delete all of your account data?');"
       method="POST" action="{{ route('users.destroy', $user) }}"
     >
       @method('DELETE')
       @csrf
 
-      <button type="submit" class="btn color-danger">REMOVE ACCOUNT</button>
+      <button type="submit" class="btn color-danger">DELETE ACCOUNT</button>
     </form>
   </div>
 </div>

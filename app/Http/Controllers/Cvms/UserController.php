@@ -6,6 +6,8 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class UserController extends Controller
 {
@@ -71,16 +73,40 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $request->validate([
+        $v = $request->validate([
             'name' => 'required',
             'email' => 'required|email',
             Rule::unique('users')->ignore($user->email),
+            'new_password' =>
+            'nullable|different:current_password|min:8|confirmed',
         ]);
 
-        $user->update([
+        $requestArray = [
             'name' => $request->name,
             'email' => $request->email,
-        ]);
+        ];
+
+        // Only validate if a new password is provided
+        if (isset($v['new_password'])) {
+            if ($request->current_password && Hash::check(
+                $request->current_password,
+                $user->getAuthPassword()
+            )) {
+
+                // Encrypt and the new password
+                $requestArray['password'] = Hash::make($request->new_password);
+            } else {
+                $error = ValidationException::withMessages([
+                    'incorrect_password' => [
+                        'The entered password does not match your current password.'
+                    ],
+                ]);
+
+                throw $error;
+            }
+        }
+
+        $user->update($requestArray);
 
         return redirect(route('users.show', $user));
     }

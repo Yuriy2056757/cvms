@@ -21,7 +21,7 @@
               <img
                 width="128"
                 height="128"
-                src="http://lorempixel.com/256/256/"
+                src="{{ asset('default-avatar.jpeg') }}"
                 alt="image"
                 class="rounded-circle img-fluid d-block m-auto"
               >

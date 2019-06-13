@@ -18,15 +18,15 @@
         width="128"
         height="128"
         src="{{ asset('storage/' . Auth::user()->image) }}"
-        alt="Image"
+        alt="image"
         class="rounded-circle img-fluid"
       >
     @else
       <img
         width="128"
         height="128"
-        src="http://lorempixel.com/256/256/"
-        alt="Image"
+        src="{{ asset('default-avatar.jpeg') }}"
+        alt="image"
         class="rounded-circle img-fluid"
       >
     @endif

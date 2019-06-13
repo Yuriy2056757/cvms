@@ -8,14 +8,14 @@
     <div class="col-sm-4">
       <div class="card">
         <div class="card-body align-self-center">
-          <div class="pb-3">
+          <div class="mb-3">
             @if ($article->image)
               <img
                 width="128"
                 height="128"
                 src="{{ asset('storage/' . $article->image) }}"
                 alt="image"
-                class="rounded-circle img-fluid"
+                class="rounded-circle img-fluid d-block m-auto"
               >
             @else
               <img

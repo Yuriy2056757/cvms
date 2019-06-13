@@ -23,7 +23,7 @@
                 height="128"
                 src="http://lorempixel.com/256/256/"
                 alt="image"
-                class="rounded-circle img-fluid"
+                class="rounded-circle img-fluid d-block m-auto"
               >
             @endif
           </div>

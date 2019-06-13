@@ -10,14 +10,14 @@
     <div class="col-sm-4">
       <div class="card">
         <div class="card-body align-self-center">
-          <div class="pb-3">
+          <div class="mb-3">
             @if ($article->image)
               <img
                 width="128"
                 height="128"
                 src="{{ asset('storage/' . $article->image) }}"
                 alt="Image"
-                class="rounded-circle img-fluid"
+                class="rounded-circle img-fluid d-block m-auto"
               >
             @else
               <img
@@ -25,7 +25,7 @@
                 height="128"
                 src="http://lorempixel.com/256/256/"
                 alt="Image"
-                class="rounded-circle img-fluid"
+                class="rounded-circle img-fluid d-block m-auto"
               >
             @endif
           </div>

@@ -16,7 +16,7 @@
                 width="128"
                 height="128"
                 src="{{ asset('storage/' . $article->image) }}"
-                alt="Image"
+                alt="image"
                 class="rounded-circle img-fluid d-block m-auto"
               >
             @else
@@ -24,7 +24,7 @@
                 width="128"
                 height="128"
                 src="http://lorempixel.com/256/256/"
-                alt="Image"
+                alt="image"
                 class="rounded-circle img-fluid d-block m-auto"
               >
             @endif

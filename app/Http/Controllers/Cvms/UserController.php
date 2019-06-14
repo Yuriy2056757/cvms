@@ -77,6 +77,7 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             Rule::unique('users')->ignore($user->email),
+            'image' => 'sometimes|file|image|max:5000',
             'new_password' =>
             'nullable|different:current_password|min:8|confirmed',
         ]);
@@ -104,6 +105,15 @@ class UserController extends Controller
 
                 throw $error;
             }
+        }
+
+        if ($request->has('image')) {
+
+            // Append to the array so we don't have to query twice
+            $requestArray['image'] = $request->image->store(
+                'uploads/cvms',
+                'public'
+            );
         }
 
         $user->update($requestArray);

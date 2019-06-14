@@ -133,7 +133,7 @@ class UserController extends Controller
         // Ensure we're deleting the user's own account
         if ($user->id == auth()->id()) {
 
-            // Unlink the Article's image from storage
+            // Unlink the User's image from storage
             Storage::disk('public')->delete($user->image);
 
             $user->delete();

@@ -11,20 +11,20 @@
           <div class="mb-3">
             @if ($article->image)
               <img
+                id="image_preview"
                 width="128"
                 height="128"
                 src="{{ asset('storage/' . $article->image) }}"
-                alt="image"
-                class="rounded-circle img-fluid d-block m-auto"
-              >
+                class="rounded-circle z-depth-1 img-fluid d-block m-auto"
+              />
             @else
               <img
+                id="image_preview"
                 width="128"
                 height="128"
-                src="{{ asset('placeholder-avatar.jpeg') }}"
-                alt="image"
-                class="rounded-circle img-fluid d-block m-auto"
-              >
+                src="{{ asset('placeholder-avatar.jpg') }}"
+                class="rounded-circle z-depth-1 img-fluid d-block m-auto"
+              />
             @endif
           </div>
 

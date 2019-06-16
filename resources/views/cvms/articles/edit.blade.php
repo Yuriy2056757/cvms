@@ -64,35 +64,6 @@
           <label for="summary">Summary</label>
         </div>
 
-        <div>
-          <div class="mb-3">
-            Display avatar
-          </div>
-
-          <div class="mb-3">
-            @if ($article->image)
-              <img
-                width="128"
-                height="128"
-                src="{{ asset('storage/' . $article->image) }}"
-                alt="image" class="rounded-circle img-fluid"
-              >
-            @else
-              <img
-                width="128"
-                height="128"
-                src="http://lorempixel.com/256/256/"
-                alt="image"
-                class="rounded-circle img-fluid"
-              >
-            @endif
-          </div>
-
-          <div class="mb-2">
-            <input type="file" name="image">
-          </div>
-        </div>
-
         <div class="md-form">
           <input class="form-control" type="text" name="display_name" value="{{ $article->display_name }}" required>
 
@@ -105,7 +76,44 @@
           <label for="display_subtitle">Display subtitle</label>
         </div>
 
-        <div class="ml-4 custom-control custom-checkbox">
+        <div>
+          <div class="mb-3">
+            Display avatar
+          </div>
+
+          @if ($article->image)
+            <img
+              id="image_preview"
+              width="128"
+              height="128"
+              src="{{ asset('storage/' . $article->image) }}"
+              class="rounded-circle z-depth-1 mb-3"
+            />
+          @else
+            <img
+              id="image_preview"
+              width="128"
+              height="128"
+              src="{{ asset('placeholder-avatar.jpg') }}"
+              class="rounded-circle z-depth-1 mb-3"
+            />
+          @endif
+
+          <div class="input-group">
+            <div class="custom-file">
+              <input
+                type="file"
+                class="custom-file-input"
+                name="image"
+                aria-describedby="inputGroupFileAddon01"
+                onchange="document.getElementById('image_preview').src = window.URL.createObjectURL(this.files[0])"
+              />
+              <label class="custom-file-label" for="image">Upload avatar</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="ml-4 custom-control custom-checkbox mt-4">
           <input name="is_active" type="checkbox" class="custom-control-input" id="is_active"
             {{ $article->is_active ? 'checked' : '' }}>
           <label class="custom-control-label disable-selection" for="is_active">Publish article</label>

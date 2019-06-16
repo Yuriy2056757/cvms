@@ -71,9 +71,20 @@
 
           <div class="mb-3">
             @if ($article->image)
-              <img src="{{ asset('storage/' . $article->image) }}" alt="image" class="rounded-circle img-fluid">
+              <img
+                width="128"
+                height="128"
+                src="{{ asset('storage/' . $article->image) }}"
+                alt="image" class="rounded-circle img-fluid"
+              >
             @else
-              <img src="http://lorempixel.com/256/256/" alt="image" class="rounded-circle img-fluid">
+              <img
+                width="128"
+                height="128"
+                src="http://lorempixel.com/256/256/"
+                alt="image"
+                class="rounded-circle img-fluid"
+              >
             @endif
           </div>
 

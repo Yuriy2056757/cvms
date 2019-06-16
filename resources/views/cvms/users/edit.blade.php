@@ -10,7 +10,7 @@
         <h2 class="page-section-header">Edit profile</h2>
       </div>
 
-      <form class="md-form" method="POST" action="{{ route('users.update', $user) }}">
+      <form class="md-form" method="POST" action="{{ route('users.update', $user) }}" enctype="multipart/form-data">
         @method('PATCH')
         @csrf
 
@@ -35,6 +35,33 @@
 
           <label for="email">Email</label>
         </div class="md-form">
+
+        <div>
+          <div class="mb-3">
+            Avatar
+          </div>
+
+          <div>
+            @if ($user->image)
+              <img
+                width="128"
+                height="128"
+                src="{{ asset('storage/' . $user->image) }}"
+                alt="image" class="rounded-circle img-fluid"
+              >
+            @else
+              <img
+                width="128"
+                height="128"
+                src="http://lorempixel.com/256/256/"
+                alt="image"
+                class="rounded-circle img-fluid"
+              >
+            @endif
+          </div>
+
+          <input type="file" name="image" class="mt-3">
+        </div>
 
         <div class="md-form">
           <input class="form-control" type="password" name="current_password">

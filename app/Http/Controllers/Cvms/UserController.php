@@ -77,6 +77,7 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             Rule::unique('users')->ignore($user->email),
+            'image' => 'sometimes|file|image|max:5000',
             'new_password' =>
             'nullable|different:current_password|min:8|confirmed',
         ]);
@@ -106,6 +107,15 @@ class UserController extends Controller
             }
         }
 
+        if ($request->has('image')) {
+
+            // Append to the array so we don't have to query twice
+            $requestArray['image'] = $request->image->store(
+                'uploads/cvms',
+                'public'
+            );
+        }
+
         $user->update($requestArray);
 
         return redirect(route('users.show', $user));
@@ -122,6 +132,10 @@ class UserController extends Controller
 
         // Ensure we're deleting the user's own account
         if ($user->id == auth()->id()) {
+
+            // Unlink the User's image from storage
+            Storage::disk('public')->delete($user->image);
+
             $user->delete();
 
             return redirect('/');

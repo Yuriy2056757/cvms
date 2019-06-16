@@ -21,7 +21,7 @@
               <img
                 width="128"
                 height="128"
-                src="{{ asset('default-avatar.jpeg') }}"
+                src="{{ asset('placeholder-avatar.jpeg') }}"
                 alt="image"
                 class="rounded-circle img-fluid d-block m-auto"
               >

@@ -7,7 +7,7 @@
   <div class="card-body">
     <div class="page-section">
       <div class="d-flex justify-content-between">
-        <h2 class="page-section-header">Edit profile</h2>
+        <h2 class="page-section-header">Profile</h2>
 
         <a href="{{ route('users.edit', $user) }}">EDIT</a>
       </div>
@@ -19,7 +19,7 @@
         height="128"
         src="{{ asset('storage/' . Auth::user()->image) }}"
         alt="image"
-        class="rounded-circle img-fluid"
+        class="rounded-circle z-depth-1 mb-3"
       >
     @else
       <img
@@ -27,7 +27,7 @@
         height="128"
         src="{{ asset('placeholder-avatar.jpg') }}"
         alt="image"
-        class="rounded-circle img-fluid"
+        class="rounded-circle z-depth-1 mb-3"
       >
     @endif
 

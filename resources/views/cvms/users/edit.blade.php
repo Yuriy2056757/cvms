@@ -36,33 +36,6 @@
           <label for="email">Email</label>
         </div class="md-form">
 
-        <div>
-          <div class="mb-3">
-            Avatar
-          </div>
-
-          <div>
-            @if ($user->image)
-              <img
-                width="128"
-                height="128"
-                src="{{ asset('storage/' . $user->image) }}"
-                alt="image" class="rounded-circle img-fluid"
-              >
-            @else
-              <img
-                width="128"
-                height="128"
-                src="http://lorempixel.com/256/256/"
-                alt="image"
-                class="rounded-circle img-fluid"
-              >
-            @endif
-          </div>
-
-          <input type="file" name="image" class="mt-3">
-        </div>
-
         <div class="md-form">
           <input class="form-control" type="password" name="current_password">
 
@@ -80,6 +53,45 @@
 
           <label for="name">Confirm password</label>
         </div class="md-form">
+
+        <div>
+          <div class="mb-3">
+            Profile image
+          </div>
+
+          <div>
+            @if ($user->image)
+              <img
+                id="image_preview"
+                width="128"
+                height="128"
+                src="{{ asset('storage/' . $user->image) }}"
+                class="rounded-circle z-depth-1 mb-3"
+              />
+            @else
+              <img
+                id="image_preview"
+                width="128"
+                height="128"
+                src="{{ asset('placeholder-avatar.jpg') }}"
+                class="rounded-circle z-depth-1 mb-3"
+              />
+            @endif
+          </div>
+
+          <div class="input-group">
+            <div class="custom-file">
+              <input
+                type="file"
+                class="custom-file-input"
+                name="image"
+                aria-describedby="inputGroupFileAddon01"
+                onchange="document.getElementById('image_preview').src = window.URL.createObjectURL(this.files[0])"
+              />
+              <label class="custom-file-label" for="image">Upload avatar</label>
+            </div>
+          </div>
+        </div>
 
         <div class="mt-5">
           <button class="btn color-default btn-block" type="submit">

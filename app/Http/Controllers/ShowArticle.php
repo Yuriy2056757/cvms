@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Article;
-use App\Qualification;
 
 class ShowArticle extends Controller
 {

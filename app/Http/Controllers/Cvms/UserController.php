@@ -82,7 +82,7 @@ class UserController extends Controller
             'nullable|different:current_password|min:8|confirmed',
         ]);
 
-        $requestArray = [
+        $data = [
             'name' => $request->name,
             'email' => $request->email,
         ];
@@ -94,8 +94,8 @@ class UserController extends Controller
                 $user->getAuthPassword()
             )) {
 
-                // Encrypt and the new password
-                $requestArray['password'] = Hash::make($request->new_password);
+                // Encrypt and set the new password
+                $data['password'] = Hash::make($request->new_password);
             } else {
                 $error = ValidationException::withMessages([
                     'incorrect_password' => [
@@ -110,13 +110,13 @@ class UserController extends Controller
         if ($request->has('image')) {
 
             // Append to the array so we don't have to query twice
-            $requestArray['image'] = $request->image->store(
+            $data['image'] = $request->image->store(
                 'uploads/cvms',
                 'public'
             );
         }
 
-        $user->update($requestArray);
+        $user->update($data);
 
         return redirect(route('users.show', $user));
     }

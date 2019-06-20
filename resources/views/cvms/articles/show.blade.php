@@ -11,7 +11,6 @@
           <div class="mb-3">
             @if ($article->image)
               <img
-                id="image_preview"
                 width="128"
                 height="128"
                 src="{{ asset('storage/' . $article->image) }}"
@@ -19,7 +18,6 @@
               />
             @else
               <img
-                id="image_preview"
                 width="128"
                 height="128"
                 src="{{ asset('placeholder-avatar.jpg') }}"

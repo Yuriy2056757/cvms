@@ -96,7 +96,7 @@
                 aria-describedby="inputGroupFileAddon01"
                 onchange="document.getElementById('image_preview').src = window.URL.createObjectURL(this.files[0])"
               />
-              <label class="custom-file-label" for="image">Upload avatar</label>
+              <label class="custom-file-label" for="image">Upload image</label>
             </div>
           </div>
         </div>

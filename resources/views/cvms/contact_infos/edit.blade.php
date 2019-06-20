@@ -38,7 +38,6 @@
             type="text"
             class="wysiwyg"
             rows="6"
-            required
           >{!! html_entity_decode($contactInfo->description) !!}</textarea>
         </div>
 

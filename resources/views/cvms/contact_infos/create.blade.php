@@ -37,7 +37,6 @@
             type="text"
             class="wysiwyg"
             rows="6"
-            required
           >{{ old('description') }}</textarea>
         </div>
 

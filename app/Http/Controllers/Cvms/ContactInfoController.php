@@ -9,6 +9,16 @@ use App\Http\Controllers\Controller;
 
 class ContactInfoController extends Controller
 {
+
+    // Redirect if inputs are not valid
+    private function validateRequest(Request $request)
+    {
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -40,12 +50,7 @@ class ContactInfoController extends Controller
      */
     public function store(Article $article, Request $request)
     {
-
-        // Redirect if inputs are not valid
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-        ]);
+        $this->validateRequest($request);
 
         ContactInfo::create([
             'article_id' => $article->id,
@@ -93,12 +98,7 @@ class ContactInfoController extends Controller
         ContactInfo $contactInfo,
         Request $request
     ) {
-
-        // Redirect if inputs are not valid
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-        ]);
+        $this->validateRequest($request);
 
         $contactInfo->update([
             'title' => $request->title,

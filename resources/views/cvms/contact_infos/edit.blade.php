@@ -28,13 +28,18 @@
           <input class="form-control" type="text" name="title" value="{{ $contactInfo->title }}" required>
 
           <label for="slug">Title</label>
-        </div>
+       </div>
 
-        <div class="md-form">
-          <textarea name="description" type="text" id="materialContactFormMessage" class="form-control md-textarea"
-            rows="6" required>{{ $contactInfo->description }}</textarea>
+        <div>
+          <div class="mb-2">Description</div>
 
-          <label for="description">Description</label>
+          <textarea
+            name="description"
+            type="text"
+            class="wysiwyg"
+            rows="6"
+            required
+          >{!! html_entity_decode($contactInfo->description) !!}</textarea>
         </div>
 
         <div class="mt-5">

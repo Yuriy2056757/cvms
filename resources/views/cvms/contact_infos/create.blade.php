@@ -29,11 +29,16 @@
           <label for="slug">Title</label>
         </div>
 
-        <div class="md-form">
-          <textarea name="description" type="text" class="form-control md-textarea"
-            rows="6" required>{{ old('description') }}</textarea>
+        <div>
+          <div class="mb-2">Description</div>
 
-          <label for="description">Description</label>
+          <textarea
+            name="description"
+            type="text"
+            class="wysiwyg"
+            rows="6"
+            required
+          >{{ old('description') }}</textarea>
         </div>
 
         <div class="mt-5">

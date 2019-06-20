@@ -62,7 +62,7 @@
                         </div>
 
                         <div>
-                          {{ $contactInfo->description }}
+                          {!! html_entity_decode($contactInfo->description) !!}
                         </div>
                       </div>
                     </div>

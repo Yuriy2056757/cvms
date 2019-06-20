@@ -55,7 +55,7 @@ class ContactInfoController extends Controller
         ContactInfo::create([
             'article_id' => $article->id,
             'title' => $request->title,
-            'description' => $request->description,
+            'description' => htmlentities($request->description),
         ]);
 
         return redirect(route('articles.show', $article));
@@ -102,7 +102,7 @@ class ContactInfoController extends Controller
 
         $contactInfo->update([
             'title' => $request->title,
-            'description' => $request->description,
+            'description' => htmlentities($request->description),
         ]);
 
         return redirect(route('articles.show', $article));

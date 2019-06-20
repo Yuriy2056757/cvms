@@ -145,6 +145,10 @@ class ArticleController extends Controller
 
         if ($request->has('image')) {
 
+            // Unlink the old image from storage
+            if (Storage::disk('public')->exists($article->image)) {
+                Storage::disk('public')->delete($article->image);
+            }
             // Append to the array so we don't have to query twice
             $requestArray['image'] = $request->image->store(
                 'uploads/cvms',
@@ -167,7 +171,9 @@ class ArticleController extends Controller
     {
 
         // Unlink the Article's image from storage
-        Storage::disk('public')->delete($article->image);
+        if (Storage::disk('public')->exists($article->image)) {
+            Storage::disk('public')->delete($article->image);
+        }
 
         $article->delete();
 

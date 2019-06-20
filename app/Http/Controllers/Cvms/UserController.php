@@ -94,7 +94,7 @@ class UserController extends Controller
                 $user->getAuthPassword()
             )) {
 
-                // Encrypt and set the new password
+                // Encrypt and append the new password to data
                 $data['password'] = Hash::make($request->new_password);
             } else {
                 $error = ValidationException::withMessages([
@@ -108,6 +108,11 @@ class UserController extends Controller
         }
 
         if ($request->has('image')) {
+
+            // Unlink the old image from storage
+            if (Storage::disk('public')->exists($user->image)) {
+                Storage::disk('public')->delete($user->image);
+            }
 
             // Append to the array so we don't have to query twice
             $data['image'] = $request->image->store(
@@ -133,8 +138,10 @@ class UserController extends Controller
         // Ensure we're deleting the user's own account
         if ($user->id == auth()->id()) {
 
-            // Unlink the User's image from storage
-            Storage::disk('public')->delete($user->image);
+            // Unlink the user's image from storage
+            if (Storage::disk('public')->exists($user->image)) {
+                Storage::disk('public')->delete($user->image);
+            }
 
             $user->delete();
 

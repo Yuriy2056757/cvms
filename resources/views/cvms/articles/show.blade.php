@@ -15,7 +15,7 @@
                 width="128"
                 height="128"
                 src="{{ asset('storage/' . $article->image) }}"
-                class="rounded-circle z-depth-1 img-fluid d-block m-auto"
+                class="rounded-circle z-depth-1"
               />
             @else
               <img
@@ -23,7 +23,7 @@
                 width="128"
                 height="128"
                 src="{{ asset('placeholder-avatar.jpg') }}"
-                class="rounded-circle z-depth-1 img-fluid d-block m-auto"
+                class="rounded-circle z-depth-1"
               />
             @endif
           </div>

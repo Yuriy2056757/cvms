@@ -38,7 +38,7 @@
             type="text"
             class="wysiwyg"
             rows="6"
-          >{!! html_entity_decode($contactInfo->description) !!}</textarea>
+          >{!! $contactInfo->description !!}</textarea>
         </div>
 
         <div class="mt-5">

@@ -65,7 +65,7 @@
             type="text"
             class="wysiwyg"
             rows="6"
-          >{{ html_entity_decode($article->summary) }}</textarea>
+          >{{ $article->summary }}</textarea>
         </div>
 
         <div class="md-form">

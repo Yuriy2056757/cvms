@@ -67,7 +67,7 @@
                         </div>
 
                         <div>
-                          {{ $contactInfo->description }}
+                          {!! $contactInfo->description !!}
                         </div>
                       </div>
 
@@ -186,7 +186,7 @@
               </div>
             </div>
 
-            <p>{!! html_entity_decode($article->summary) !!}</p>
+            <p>{!! $article->summary !!}</p>
           </div>
         </div>
       </div>

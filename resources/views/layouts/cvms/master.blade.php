@@ -21,6 +21,18 @@
   <link rel="stylesheet" type="text/css" href="{{ asset(mix('css/cvms/custom.css')) }}">
   <link rel="stylesheet" type="text/css"
     href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  {{-- TinyMCE --}}
+  <script
+    src="https://cdn.tiny.cloud/1/8dpdy30xxr9qhkrwjhhytog1468vqzhkdh4elu85x9jwjwlq/tinymce/5/tinymce.min.js"
+    referrerpolicy="origin"
+  ></script>
+
+  <script>
+    tinymce.init({
+      selector: '.wysiwyg'
+    });
+  </script>
 </head>
 
 <body class="grey lighten-3">

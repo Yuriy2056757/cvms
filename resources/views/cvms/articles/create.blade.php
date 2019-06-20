@@ -55,11 +55,16 @@
           <label for="seo_description">Search engine description</label>
         </div>
 
-        <div class="md-form">
-          <textarea name="summary" type="text" id="materialContactFormMessage" class="form-control md-textarea"
-            rows="6" required>{{ old('summary') }}</textarea>
+        <div class="mt-3">
+          <div class="mb-2">Summary</div>
 
-          <label for="summary">Summary</label>
+          <textarea
+            name="summary"
+            type="text"
+            class="wysiwyg"
+            rows="6"
+            required
+          >{{ old('summary') }}</textarea>
         </div>
 
         <div class="md-form">

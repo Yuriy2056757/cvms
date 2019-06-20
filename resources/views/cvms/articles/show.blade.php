@@ -186,9 +186,7 @@
               </div>
             </div>
 
-            <p>
-              {{ $article->summary }}
-            </p>
+            <p>{!! html_entity_decode($article->summary) !!}</p>
           </div>
         </div>
       </div>

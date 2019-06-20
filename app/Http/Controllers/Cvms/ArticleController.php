@@ -58,12 +58,12 @@ class ArticleController extends Controller
     {
         $this->validateRequest($request);
 
-        $requestArray = [
+        $data = [
             'user_id' => auth()->id(),
             'name' => $request->name,
             'slug' => str_slug($request->slug),
             'header_title' => $request->header_title,
-            'summary' => $request->summary,
+            'summary' => htmlentities($request->summary),
             'seo_title' => $request->seo_title,
             'seo_description' => $request->seo_description,
             'display_name' => $request->display_name,
@@ -74,14 +74,14 @@ class ArticleController extends Controller
 
         if ($request->has('image')) {
 
-            // Append to the array so we don't have to query twice
-            $requestArray['image'] = $request->image->store(
+            // Append to data so we don't have to query twice
+            $data['image'] = $request->image->store(
                 'uploads/cvms',
                 'public'
             );
         }
 
-        Article::create($requestArray);
+        Article::create($data);
 
         return redirect(route('articles.index'));
     }
@@ -130,11 +130,11 @@ class ArticleController extends Controller
     {
         $this->validateRequest($request);
 
-        $requestArray = [
+        $data = [
             'name' => $request->name,
             'slug' => str_slug($request->slug),
             'header_title' => $request->header_title,
-            'summary' => $request->summary,
+            'summary' => htmlentities($request->summary),
             'seo_title' => $request->seo_title,
             'seo_description' => $request->seo_description,
             'display_name' => $request->display_name,
@@ -149,14 +149,15 @@ class ArticleController extends Controller
             if (Storage::disk('public')->exists($article->image)) {
                 Storage::disk('public')->delete($article->image);
             }
-            // Append to the array so we don't have to query twice
-            $requestArray['image'] = $request->image->store(
+
+            // Append to data so we don't have to query twice
+            $data['image'] = $request->image->store(
                 'uploads/cvms',
                 'public'
             );
         }
 
-        $article->update($requestArray);
+        $article->update($data);
 
         return redirect(route('articles.show', $article));
     }

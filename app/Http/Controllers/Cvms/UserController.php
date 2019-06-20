@@ -114,7 +114,7 @@ class UserController extends Controller
                 Storage::disk('public')->delete($user->image);
             }
 
-            // Append to the array so we don't have to query twice
+            // Append to data so we don't have to query twice
             $data['image'] = $request->image->store(
                 'uploads/cvms',
                 'public'

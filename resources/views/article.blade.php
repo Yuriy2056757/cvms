@@ -17,7 +17,7 @@
                 height="128"
                 src="{{ asset('storage/' . $article->image) }}"
                 alt="image"
-                class="rounded-circle img-fluid d-block m-auto"
+                class="rounded-circle z-depth-1"
               >
             @else
               <img
@@ -25,7 +25,7 @@
                 height="128"
                 src="http://lorempixel.com/256/256/"
                 alt="image"
-                class="rounded-circle img-fluid d-block m-auto"
+                class="rounded-circle z-depth-1"
               >
             @endif
           </div>
@@ -126,9 +126,7 @@
               </div>
             </div>
 
-            <p>
-              {{ $article->summary }}
-            </p>
+            <p>{!! html_entity_decode($article->summary) !!}</p>
           </div>
         </div>
       </div>
